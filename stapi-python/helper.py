@@ -58,16 +58,35 @@ for klasa in klasy:
     # print(klasa)
 lepsze_klasy.sort()
 
-for klasa in lepsze_klasy:
-    print("class " + klasa + ":")
-    print("""
-    def __init__(self, url, apiKey):
-        self.url = url
-        self.apiKey = apiKey""")
-    print("""
-    def get(uid):
-        pass
+main_file = open("main.py", "w")
 
-    def search(searchCriteria):
-        pass""")
-    print("\n")
+# for klasa in lepsze_klasy:
+#     print("class " + klasa + ":")
+#     print("""
+#     def __init__(self, url, apiKey):
+#         self.url = url
+#         self.apiKey = apiKey""")
+#     print("""
+#     def get(uid):
+#         pass
+
+#     def search(searchCriteria):
+#         pass""")
+#     print("\n")
+def helper_klasy():
+    for klasa in lepsze_klasy:
+        main_file.write("class " + klasa + ":")
+        main_file.write("""
+        def __init__(self, url, apiKey):
+            self.url = url
+            self.apiKey = apiKey""")
+        main_file.write("""
+        def get(uid):
+            pass
+
+        def search(searchCriteria):
+            pass
+            """)
+        main_file.write("\n")
+
+    main_file.close()
