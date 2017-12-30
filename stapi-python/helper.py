@@ -1,7 +1,7 @@
 import urllib.request
 import json
 import os
-import yaml
+# import yaml
 
 # class AstronomicalObject:
 #     def __init__(self, uid):
@@ -11,23 +11,6 @@ import yaml
 #             if type(value) is not dict:
 #                 setattr(self, key, value)
 
-
-class RestClient:
-    
-
-    entity_types = ['food', 'material', 'conflict', 'weapon', 'video_release',
-    'performer', 'book', 'comics', 'occupation', 'episode', 'organization', 'magazine',
-    'astronomical_object', 'platform', 'element', 'trading_card', 'trading_card_deck', 'company',
-    'soundtrack', 'animal', 'trading_card_set', 'comic_series', 'spacecraft_type', 'genre',
-    'medical_condition', 'video_game', 'technology', 'reference', 'spacecraft_class',
-    'magazine_series', 'season', 'movie', 'spacecraft', 'book_collection', 'comic_strip',
-    'staff', 'series', 'comic_collection', 'content_rating', 'title', 'content_language',
-    'common', 'species', 'location', 'country', 'book_series', 'character', 'literature']
-
-
-    def __init__(self, url, apiKey):
-        self.url = url
-        self.apiKey = apiKey
     # def getAstronomicalObject(self):
     #     return GetAstronomicalObject(self, url, apiKey)
 
@@ -58,21 +41,11 @@ for klasa in klasy:
     # print(klasa)
 lepsze_klasy.sort()
 
+for lasa in lepsze_klasy:
+    print("self." + lasa[0].lower() + lasa[1:] + " = " + lasa + "(url, apiKey)")
+
 main_file = open("main.py", "w")
 
-# for klasa in lepsze_klasy:
-#     print("class " + klasa + ":")
-#     print("""
-#     def __init__(self, url, apiKey):
-#         self.url = url
-#         self.apiKey = apiKey""")
-#     print("""
-#     def get(uid):
-#         pass
-
-#     def search(searchCriteria):
-#         pass""")
-#     print("\n")
 def helper_klasy():
     for klasa in lepsze_klasy:
         main_file.write("class " + klasa + ":")
@@ -90,3 +63,17 @@ def helper_klasy():
         main_file.write("\n")
 
     main_file.close()
+
+# for klasa in lepsze_klasy:
+#     print("class " + klasa + ":")
+#     print("""
+#     def __init__(self, url, apiKey):
+#         self.url = url
+#         self.apiKey = apiKey""")
+#     print("""
+#     def get(uid):
+#         pass
+
+#     def search(searchCriteria):
+#         pass""")
+#     print("\n")
