@@ -41,10 +41,22 @@ for klasa in klasy:
     # print(klasa)
 lepsze_klasy.sort()
 
+def lower_first_char(s):
+    return s[0].lower() + s[1:]
 # for lasa in lepsze_klasy:
 #     print("self." + lasa[0].lower() + lasa[1:] + " = " + lasa + "(url, apiKey)")
 
+def helper_klasy_full_response():
+    full_response_file = open("full_response.py", "w")
+    for klasa in lepsze_klasy:
+        full_response_file.write("class " + klasa + "FullResponse" + ":")
+        full_response_file.write("""
+        def __init__(self, uid):
+            self.uid = uid
+            self.""" + lower_first_char(klasa) + " = " + klasa + "Full(uid)")
 
+        full_response_file.write("\n\n")
+helper_klasy_full_response()
 
 def helper_klasy_main():
     main_file = open("main.py", "w")
@@ -63,7 +75,8 @@ def helper_klasy_main():
         main_file.write("\n")
 
     main_file.close()
-helper_klasy_main()
+
+
 # for klasa in lepsze_klasy:
 #     print("class " + klasa + ":")
 #     print("""
