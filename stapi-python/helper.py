@@ -41,12 +41,13 @@ for klasa in klasy:
     # print(klasa)
 lepsze_klasy.sort()
 
-for lasa in lepsze_klasy:
-    print("self." + lasa[0].lower() + lasa[1:] + " = " + lasa + "(url, apiKey)")
+# for lasa in lepsze_klasy:
+#     print("self." + lasa[0].lower() + lasa[1:] + " = " + lasa + "(url, apiKey)")
 
-main_file = open("main.py", "w")
 
-def helper_klasy():
+
+def helper_klasy_main():
+    main_file = open("main.py", "w")
     for klasa in lepsze_klasy:
         main_file.write("class " + klasa + ":")
         main_file.write("""
@@ -54,16 +55,15 @@ def helper_klasy():
             self.url = url
             self.apiKey = apiKey""")
         main_file.write("""
-        def get(uid):
+        def get(self, uid):
             pass
-
-        def search(searchCriteria):
+        def search(self, searchCriteria):
             pass
             """)
         main_file.write("\n")
 
     main_file.close()
-
+helper_klasy_main()
 # for klasa in lepsze_klasy:
 #     print("class " + klasa + ":")
 #     print("""

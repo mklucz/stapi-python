@@ -1,3 +1,5 @@
+from main import *
+
 class RestClient:
     
     def __init__(self, url, apiKey):
@@ -52,6 +54,20 @@ class RestClient:
         self.videoGame = VideoGame(url, apiKey)
         self.videoRelease = VideoRelease(url, apiKey)
         self.weapon = Weapon(url, apiKey)
+
+client = RestClient("example.com", "key")
+print(dir(client.animal))
+print(client.animal.get("bum"))
+
+
+
+
+
+
+
+
+
+
 
 entity_types = ['food', 'material', 'conflict', 'weapon', 'video_release',
     'performer', 'book', 'comics', 'occupation', 'episode', 'organization', 'magazine',
