@@ -66,28 +66,37 @@ def lower_first_char(s):
 def helper_klasy_base():
     # base_file = open("base.py", "w")
     for i in range(len(snake_case)):
-        output_code = "class " + PascalCase[i] + ":" + "\n" + "    def __init__(self, "
-        output_docstring = ""
+        output_code = "class " + PascalCase[i] + ":" + "\n" + "    def __init__(self, uid, "
+        output_docstring = """"""
         loaded_yaml = yaml.load(open("/home/maciek/Documents/newprog/stapi/yaml/" +
                                 snake_case[i] + "/entity/" + snake_case[i] + "Base.yaml"))
         for top_key, top_value in loaded_yaml.items():
             if top_key == "type":
                 continue
             elif top_key == "description":
-                continue
+                output_docstring += top_value
+                output_docstring += """\nArgs:""" + "\n"
             elif top_key == "properties":
+                ordered_properties = ["uid", "placeholder"]
                 positional_arguments = ""
                 named_arguments = ""
                 for key, value in sorted(top_value.items()):
                     if "required" not in value:
                         named_arguments += key + "=None, "
-                        print(named_arguments)
+                        ordered_properties.append(key)
                     else:
-                        positional_arguments += key + ", "
+                        if key != "uid":
+                            positional_arguments += key + ", "
+                            ordered_properties[1] = key
+                for e in ordered_properties:
+                    output_docstring += "    " + e + " (" + top_value[e]["type"] + "): " + top_value[e]["description"] + "\n"
                 output_code += positional_arguments
                 output_code += named_arguments
                 output_code = output_code[:-2] + ")"
-                print(output_code)
+                print(output_code) ## WRITE TO FILE
+                print(ordered_properties)
+                print(output_docstring)
+
 
 
         break
