@@ -63,23 +63,54 @@ def lower_first_char(s):
 # for lasa in lepsze_klasy:
 #     print("self." + lasa[0].lower() + lasa[1:] + " = " + lasa + "(url, apiKey)")
 
+def extract_ordered_properties(path_to_yaml_file):
+    ordered_properties = []
+    f = open(path_to_yaml_file)
+    lines_list = [l for l in f.readlines()]
+    loaded_yaml = yaml.load(open(path_to_yaml_file))
+    for line in lines_list:
+        if line.startswith("  ") and line[2] != " ":
+            prop = line[2:-2]
+            if prop in loaded_yaml["properties"][prop]:
+                print("kum")
+                # TODO: zrobiś tak żeby wywalało listę wszystkich properties z flagą czy required czy nie
+
+
 def helper_klasy_base():
-    # base_file = open("base.py", "w")
+    base_file = open("base.py", "w")
     for i in range(len(snake_case)):
         output_code = "class " + PascalCase[i] + ":" + "\n" + "    def __init__(self, uid, "
         output_docstring = """"""
-        loaded_yaml = yaml.load(open("/home/maciek/Documents/newprog/stapi/yaml/" +
-                                snake_case[i] + "/entity/" + snake_case[i] + "Base.yaml"))
+        file_string = "/home/maciek/Documents/newprog/stapi/yaml/" + snake_case[i] + "/entity/" + camelCase[i] + "Base.yaml"
+        loaded_yaml = yaml.load(open(file_string))
+        
+        # with open(file_string) as f:
+        #     lines_from_yaml = f.readlines()
+        # lines_from_yaml = [l.strip() for l in lines_from_yaml]
+        # # print(lines_from_yaml)
+        # ordered_required_properties = []
+        # for j in range(len(lines_from_yaml)):
+        #     if lines_from_yaml[j] == "required: true":
+        #         ordered_required_properties.append(lines_from_yaml[j-2][:-1])
+        # print(ordered_required_properties)
+        extract_ordered_properties(file_string)
+
+        output_docstring += '''\n        \"\"\"'''
+        output_docstring += loaded_yaml["description"]
+        output_docstring += """\n        Args:""" + "\n"
         for top_key, top_value in loaded_yaml.items():
+
             if top_key == "type":
                 continue
-            elif top_key == "description":
-                output_docstring += top_value
-                output_docstring += """\nArgs:""" + "\n"
+            # elif top_key == "description":
+            #     output_docstring += '''\"\"\"'''
+            #     output_docstring += top_value
+            #     output_docstring += """\nArgs:""" + "\n"
             elif top_key == "properties":
                 ordered_properties = ["uid", "placeholder"]
                 positional_arguments = ""
                 named_arguments = ""
+                assignments = """"""
                 for key, value in sorted(top_value.items()):
                     if "required" not in value:
                         named_arguments += key + "=None, "
@@ -89,17 +120,31 @@ def helper_klasy_base():
                             positional_arguments += key + ", "
                             ordered_properties[1] = key
                 for e in ordered_properties:
-                    output_docstring += "    " + e + " (" + top_value[e]["type"] + "): " + top_value[e]["description"] + "\n"
+                    # print(top_value[e])
+                    # print(file_string)
+                    if "type" in top_value[e]:
+                        output_docstring += "            " + e + " (" + top_value[e]["type"] + "): " + top_value[e]["description"] + "\n"
+                        assignments +=  "        self." + e + " = " + e + "\n"
+                    else:
+                        output_docstring += "            " + e + " (" + top_value[e]["$ref"] + "): " + top_value[e]["description"] + "\n"
+                        assignments +=  "        self." + e + " = " + e + "\n"
                 output_code += positional_arguments
                 output_code += named_arguments
                 output_code = output_code[:-2] + ")"
-                print(output_code) ## WRITE TO FILE
-                print(ordered_properties)
-                print(output_docstring)
+                output_docstring += "        \"\"\"\n"
+                
+
+                base_file.write(output_code)
+                base_file.write(output_docstring)
+                base_file.write(assignments)
+    base_file.close()            
+                # print(output_code) ## WRITE TO FILE
+                # print(output_docstring)
+                # print(assignments)
 
 
 
-        break
+        
 
 helper_klasy_base()
 
