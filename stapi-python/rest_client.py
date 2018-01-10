@@ -56,7 +56,7 @@ class RestClient:
         self.weapon = Weapon(url, apiKey)
 
 client = RestClient("example.com", "key")
-print(dir(client.animal))
+# print(dir(client.animal))
 print(client.animal.get("bum"))
 
 

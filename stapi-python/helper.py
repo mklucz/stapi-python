@@ -163,7 +163,7 @@ def helper_klasy_base():
 
         
 
-helper_klasy_base()
+# helper_klasy_base()
 
 def helper_klasy_full_response():
     full_response_file = open("full_response.py", "w")
