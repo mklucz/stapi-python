@@ -71,18 +71,26 @@ def extract_ordered_properties(path_to_yaml_file):
     for line in lines_list:
         if line.startswith("  ") and line[2] != " ":
             prop = line[2:-2]
-            if prop in loaded_yaml["properties"][prop]:
-                print("kum")
-                # TODO: zrobiś tak żeby wywalało listę wszystkich properties z flagą czy required czy nie
-
+            if prop in loaded_yaml["properties"]:
+                # print(loaded_yaml["properties"][prop])
+                if "required" in loaded_yaml["properties"][prop] and loaded_yaml["properties"][prop]["required"]:
+                    ordered_properties.append((prop, True))
+                else:
+                    ordered_properties.append((prop, False))
+    return ordered_properties
 
 def helper_klasy_base():
     base_file = open("base.py", "w")
     for i in range(len(snake_case)):
-        output_code = "class " + PascalCase[i] + ":" + "\n" + "    def __init__(self, uid, "
+        output_code = "class " + PascalCase[i] + ":" + "\n" + "    def __init__(self, "
         output_docstring = """"""
-        file_string = "/home/maciek/Documents/newprog/stapi/yaml/" + snake_case[i] + "/entity/" + camelCase[i] + "Base.yaml"
-        loaded_yaml = yaml.load(open(file_string))
+        file_string = "/home/maciek/Documents/newprog/stapi/stapi-python/yaml/" + snake_case[i] + "/entity/" + camelCase[i] + "Base.yaml"
+        try:
+            loaded_yaml = yaml.load(open(file_string))
+            ordered_properties = extract_ordered_properties(file_string)
+        except FileNotFoundError as e:
+            print(e)
+            continue
         
         # with open(file_string) as f:
         #     lines_from_yaml = f.readlines()
@@ -93,7 +101,7 @@ def helper_klasy_base():
         #     if lines_from_yaml[j] == "required: true":
         #         ordered_required_properties.append(lines_from_yaml[j-2][:-1])
         # print(ordered_required_properties)
-        extract_ordered_properties(file_string)
+        
 
         output_docstring += '''\n        \"\"\"'''
         output_docstring += loaded_yaml["description"]
@@ -107,27 +115,36 @@ def helper_klasy_base():
             #     output_docstring += top_value
             #     output_docstring += """\nArgs:""" + "\n"
             elif top_key == "properties":
-                ordered_properties = ["uid", "placeholder"]
+                # ordered_properties = ["uid", "placeholder"]
                 positional_arguments = ""
                 named_arguments = ""
                 assignments = """"""
-                for key, value in sorted(top_value.items()):
-                    if "required" not in value:
-                        named_arguments += key + "=None, "
-                        ordered_properties.append(key)
+                # for key, value in sorted(top_value.items()):
+                #     if "required" not in value:
+                #         named_arguments += key + "=None, "
+                #         ordered_properties.append(key)
+                #     else:
+                #         if key != "uid":
+                #             positional_arguments += key + ", "
+                #             ordered_properties[1] = key
+                for t in ordered_properties:
+                    prop, flag = t[0], t[1]
+                    if flag:
+                        positional_arguments += prop + ", "
+                        if "type" in top_value[prop]:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["type"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
+                        else:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["$ref"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
                     else:
-                        if key != "uid":
-                            positional_arguments += key + ", "
-                            ordered_properties[1] = key
-                for e in ordered_properties:
-                    # print(top_value[e])
-                    # print(file_string)
-                    if "type" in top_value[e]:
-                        output_docstring += "            " + e + " (" + top_value[e]["type"] + "): " + top_value[e]["description"] + "\n"
-                        assignments +=  "        self." + e + " = " + e + "\n"
-                    else:
-                        output_docstring += "            " + e + " (" + top_value[e]["$ref"] + "): " + top_value[e]["description"] + "\n"
-                        assignments +=  "        self." + e + " = " + e + "\n"
+                        named_arguments += prop + "=None" + ", "
+                        if "type" in top_value[prop]:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["type"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
+                        else:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["$ref"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
                 output_code += positional_arguments
                 output_code += named_arguments
                 output_code = output_code[:-2] + ")"
