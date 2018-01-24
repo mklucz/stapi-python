@@ -54,10 +54,6 @@ camelCase = [e[0].lower() + e[1:] for e in PascalCase]
 # lepsze_klasy.sort()
 # print(lepsze_klasy)
 
-class AnimalBase:
-    def __init__(self, uid, name, earthAnimal=None):
-        pass
-
 def lower_first_char(s):
     return s[0].lower() + s[1:]
 # for lasa in lepsze_klasy:
@@ -82,7 +78,7 @@ def extract_ordered_properties(path_to_yaml_file):
 def helper_klasy_base():
     base_file = open("base.py", "w")
     for i in range(len(snake_case)):
-        output_code = "class " + PascalCase[i] + ":" + "\n" + "    def __init__(self, "
+        output_code = "class " + PascalCase[i]+ "Base" + ":" + "\n" + "    def __init__(self, "
         output_docstring = """"""
         file_string = "/home/maciek/Documents/newprog/stapi/stapi-python/yaml/" + snake_case[i] + "/entity/" + camelCase[i] + "Base.yaml"
         try:
@@ -170,24 +166,39 @@ def helper_klasy_full_response():
     for klasa in lepsze_klasy:
         full_response_file.write("class " + klasa + "FullResponse" + ":")
         full_response_file.write("""
-        def __init__(self, uid):
-            self.uid = uid
-            self.""" + lower_first_char(klasa) + " = " + klasa + "Full(uid)")
+        def __init__(self, """ + klasa + """Full):
+            self.""" + lower_first_char(klasa) + " = " + klasa + "Full")
 
         full_response_file.write("\n\n")
 # helper_klasy_full_response()
 
 def helper_klasy_main():
     main_file = open("main.py", "w")
-    for klasa in lepsze_klasy:
-        main_file.write("class " + klasa + ":")
+    for i in range(len(lepsze_klasy)):
+        try:
+            get_file = open("../yaml/" + snake_case[i] + "/path/" + camelCase[i] + ".path.yaml")
+        except FileNotFoundError as e:
+            print("no get_file", e)
+            continue
+        try:
+            search_file = open("../yaml/" + snake_case[i] + "/path/" + camelCase[i] + "Search.path.yaml")
+        except FileNotFoundError as e:
+            print("no search_file", e)
+            # if get_file:
+            #     continue  
+            continue
+        loaded_get_file = yaml.load(get_file)
+        loaded_search_file = yaml.load(search_file)
+        
+        main_file.write("class " + PascalCase[i] + ":")
         main_file.write("""
         def __init__(self, url, apiKey):
             self.url = url
             self.apiKey = apiKey""")
         main_file.write("""
         def get(self, uid):
-            pass
+            return """ + PascalCase[i] + "FullResponse(uid)" +
+            """
         def search(self, searchCriteria):
             pass
             """)
@@ -195,17 +206,68 @@ def helper_klasy_main():
 
     main_file.close()
 
+# helper_klasy_main()
 
-# for klasa in lepsze_klasy:
-#     print("class " + klasa + ":")
-#     print("""
-#     def __init__(self, url, apiKey):
-#         self.url = url
-#         self.apiKey = apiKey""")
-#     print("""
-#     def get(uid):
-#         pass
+def helper_base_response():
+    base_response_file = open("base_response.py", "w")
+    for i in range(len(PascalCase)):
+        base_response_file.write("class " + PascalCase[i] + "BaseResponse" + ":")
+        base_response_file.write("""
+        def __init__(self):
+            pass\n\n""")
+    base_response_file.close()
 
-#     def search(searchCriteria):
-#         pass""")
-#     print("\n")
+# helper_base_response()
+
+def helper_full():
+    full_file = open("full.py", "w")
+    for i in range(len(PascalCase)):
+        # full_file.write("class " + PascalCase[i] + "Full" + ":")
+        output_code = "class " + PascalCase[i]+ "Full" + ":" + "\n" + "    def __init__(self, "
+        output_docstring = """"""
+        file_string = os.getcwd() + "/yaml/" + snake_case[i] + "/entity/" + camelCase[i] + "Full.yaml"
+        try:
+            loaded_yaml = yaml.load(open(file_string))
+            ordered_properties = extract_ordered_properties(file_string)
+        except FileNotFoundError as e:
+            print(e)
+            continue
+        output_docstring += '''\n        \"\"\"'''
+        output_docstring += loaded_yaml["description"]
+        output_docstring += """\n        Args:""" + "\n"
+        for top_key, top_value in loaded_yaml.items():
+            if top_key == "type":
+                continue
+            elif top_key == "properties":
+                positional_arguments = ""
+                named_arguments = ""
+                assignments = """"""
+                for t in ordered_properties:
+                    prop, flag = t[0], t[1]
+                    if flag:
+                        positional_arguments += prop + ", "
+                        if "type" in top_value[prop]:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["type"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
+                        else:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["$ref"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
+                    else:
+                        named_arguments += prop + "=None" + ", "
+                        if "type" in top_value[prop]:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["type"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
+                        else:
+                            output_docstring += "            " + prop + " (" + top_value[prop]["$ref"] + "): " + top_value[prop]["description"] + "\n"
+                            assignments +=  "        self." + prop + " = " + prop + "\n"
+                output_code += positional_arguments
+                output_code += named_arguments
+                output_code = output_code[:-2] + ")"
+                output_docstring += "        \"\"\"\n"
+                
+
+                full_file.write(output_code)
+                full_file.write(output_docstring)
+                full_file.write(assignments)
+    full_file.close()
+helper_full()

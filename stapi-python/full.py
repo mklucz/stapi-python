@@ -1,6 +1,6 @@
-class AnimalBase:
+class AnimalFull:
     def __init__(self, uid, name, earthAnimal=None, earthInsect=None, avian=None, canine=None, feline=None)
-        """Base animal, returned in search results
+        """Full animal, returned when queried using UID
         Args:
             uid (string): Animal unique ID
             name (string): Animal name
@@ -17,22 +17,24 @@ class AnimalBase:
         self.avian = avian
         self.canine = canine
         self.feline = feline
-class AstronomicalObjectBase:
-    def __init__(self, uid, name, astronomicalObjectType, location=None)
-        """Base astronomical object, returned in search results
+class AstronomicalObjectFull:
+    def __init__(self, uid, name, astronomicalObjectType, location=None, astronomicalObjects=None)
+        """Full astronomical object, returned when queried using UID
         Args:
             uid (string): Astronomical object's unique ID
             name (string): Astronomical object name
             astronomicalObjectType (#/definitions/AstronomicalObjectType): Type of astronomical object
-            location (#/definitions/AstronomicalObjectHeader): Location of astronomical object (optional)
+            location (#/definitions/AstronomicalObjectBase): Location of astronomical object (optional)
+            astronomicalObjects (array): Astronomical objects located in this astronomical object, like planets in a star system
         """
         self.uid = uid
         self.name = name
         self.astronomicalObjectType = astronomicalObjectType
         self.location = location
-class BookBase:
-    def __init__(self, uid, title, novel, referenceBook, biographyBook, rolePlayingBook, eBook, anthology, novelization, audiobook, audiobookAbridged, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, audiobookPublishedYear=None, audiobookPublishedMonth=None, audiobookPublishedDay=None, audiobookRunTime=None, productionNumber=None)
-        """Base book, returned in search results
+        self.astronomicalObjects = astronomicalObjects
+class BookFull:
+    def __init__(self, uid, title, novel, referenceBook, biographyBook, rolePlayingBook, eBook, anthology, novelization, audiobook, audiobookAbridged, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, audiobookPublishedYear=None, audiobookPublishedMonth=None, audiobookPublishedDay=None, audiobookRunTime=None, productionNumber=None, bookSeries=None, authors=None, artists=None, editors=None, audiobookNarrators=None, publishers=None, audiobookPublishers=None, characters=None, references=None, audiobookReferences=None, bookCollections=None)
+        """Full book, returned when queried using UID
         Args:
             uid (string): Book unique ID
             title (string): Book title
@@ -48,7 +50,7 @@ class BookBase:
             referenceBook (boolean): Whether it's a reference book
             biographyBook (boolean): Whether it's a biography book
             rolePlayingBook (boolean): Whether it's a role playing book
-            eBook (boolean): Whether it's an eBook
+            eBook (boolean): Whether it's an e-book
             anthology (boolean): Whether it's an anthology
             novelization (boolean): Whether it's a novelization
             audiobook (boolean): Whether it's an audiobook, or has been release as an audiobook in addition to other form
@@ -57,7 +59,18 @@ class BookBase:
             audiobookPublishedMonth (integer): Month the audiobook was published
             audiobookPublishedDay (integer): Day the audiobook was published
             audiobookRunTime (integer): Audiobook run time, in minutes
-            productionNumber (string): Book's production number
+            productionNumber (string): Book production number
+            bookSeries (array): Book series this book is included in
+            authors (array): Authors of the book
+            artists (array): Artists involved in the book
+            editors (array): Editors involved in the book
+            audiobookNarrators (array): Audiobook narrators
+            publishers (array): Book publishers
+            audiobookPublishers (array): Audiobook publishers
+            characters (array): Characters appearing the book
+            references (array): References
+            audiobookReferences (array): Audiobook references
+            bookCollections (array): Book collections this book is included in
         """
         self.uid = uid
         self.title = title
@@ -83,9 +96,20 @@ class BookBase:
         self.audiobookPublishedDay = audiobookPublishedDay
         self.audiobookRunTime = audiobookRunTime
         self.productionNumber = productionNumber
-class BookCollectionBase:
-    def __init__(self, uid=None, title=None, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None)
-        """Base book collection, returned in search results
+        self.bookSeries = bookSeries
+        self.authors = authors
+        self.artists = artists
+        self.editors = editors
+        self.audiobookNarrators = audiobookNarrators
+        self.publishers = publishers
+        self.audiobookPublishers = audiobookPublishers
+        self.characters = characters
+        self.references = references
+        self.audiobookReferences = audiobookReferences
+        self.bookCollections = bookCollections
+class BookCollectionFull:
+    def __init__(self, uid=None, title=None, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, bookSeries=None, authors=None, artists=None, editors=None, publishers=None, characters=None, references=None, books=None)
+        """Full book collection, returned when queried using UID
         Args:
             uid (string): Book collection unique ID
             title (string): Book collection title
@@ -97,6 +121,14 @@ class BookCollectionBase:
             stardateTo (number): Ending stardate of book collection stories
             yearFrom (integer): Starting year of book collection stories
             yearTo (integer): Ending year of book collection stories
+            bookSeries (array): Book series this book collection is included in
+            authors (array): Authors of the book collection
+            artists (array): Artists involved in the book collection
+            editors (array): Editors involved in the book collection
+            publishers (array): Book collection publishers
+            characters (array): Characters appearing in the book collection
+            references (array): References
+            books (array): Books included in this book collection
         """
         self.uid = uid
         self.title = title
@@ -108,9 +140,17 @@ class BookCollectionBase:
         self.stardateTo = stardateTo
         self.yearFrom = yearFrom
         self.yearTo = yearTo
-class BookSeriesBase:
-    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfBooks=None, yearFrom=None, yearTo=None, miniseries=None, eBookSeries=None)
-        """Base book series, returned in search results
+        self.bookSeries = bookSeries
+        self.authors = authors
+        self.artists = artists
+        self.editors = editors
+        self.publishers = publishers
+        self.characters = characters
+        self.references = references
+        self.books = books
+class BookSeriesFull:
+    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfBooks=None, yearFrom=None, yearTo=None, miniseries=None, eBookSeries=None, parentSeries=None, childSeries=None, publishers=None, books=None)
+        """Full book series, returned when queried using UID
         Args:
             uid (string): Book series unique ID
             title (string): Book series title
@@ -118,11 +158,15 @@ class BookSeriesBase:
             publishedMonthFrom (integer): Month from which the book series was published
             publishedYearTo (integer): Year to which the book series was published
             publishedMonthTo (integer): Month to which the book series was published
-            numberOfBooks (integer): Number of pages
+            numberOfBooks (integer): Number of books in book series
             yearFrom (integer): Starting year of book series stories
             yearTo (integer): Ending year of book series stories
             miniseries (boolean): Whether it's a miniseries
             eBookSeries (boolean): Whether it's a e-book series
+            parentSeries (array): Book series this book series is included in
+            childSeries (array): Child book series included in this book series
+            publishers (array): Companies that published this book series
+            books (array): Books included in this book series
         """
         self.uid = uid
         self.title = title
@@ -135,9 +179,13 @@ class BookSeriesBase:
         self.yearTo = yearTo
         self.miniseries = miniseries
         self.eBookSeries = eBookSeries
-class CharacterBase:
-    def __init__(self, uid, name, gender=None, yearOfBirth=None, monthOfBirth=None, dayOfBirth=None, placeOfBirth=None, yearOfDeath=None, monthOfDeath=None, dayOfDeath=None, placeOfDeath=None, height=None, weight=None, deceased=None, bloodType=None, maritalStatus=None, serialNumber=None, hologramActivationDate=None, hologramStatus=None, hologramDateStatus=None, hologram=None, fictionalCharacter=None, mirror=None, alternateReality=None)
-        """Base character, returned in search results
+        self.parentSeries = parentSeries
+        self.childSeries = childSeries
+        self.publishers = publishers
+        self.books = books
+class CharacterFull:
+    def __init__(self, uid, name, gender=None, yearOfBirth=None, monthOfBirth=None, dayOfBirth=None, placeOfBirth=None, yearOfDeath=None, monthOfDeath=None, dayOfDeath=None, placeOfDeath=None, height=None, weight=None, deceased=None, bloodType=None, maritalStatus=None, serialNumber=None, hologramActivationDate=None, hologramStatus=None, hologramDateStatus=None, hologram=None, fictionalCharacter=None, mirror=None, alternateReality=None, performers=None, episodes=None, movies=None, characterSpecies=None, characterRelations=None, titles=None, occupations=None, organizations=None)
+        """Full character, returned when queried using UID
         Args:
             uid (string): Character unique ID
             name (string): Character name
@@ -163,6 +211,14 @@ class CharacterBase:
             fictionalCharacter (boolean): Whether this character is a fictional character (from universe point of view)
             mirror (boolean): Whether this character is from mirror universe
             alternateReality (boolean): Whether this character is from alternate reality
+            performers (array): Performers who played this character
+            episodes (array): Episodes in which this character appeared
+            movies (array): Movies in which this character appeared
+            characterSpecies (array): Species this character belongs to
+            characterRelations (array): Relations with other characters
+            titles (array): Titles this character holds
+            occupations (array): Occupations of this character
+            organizations (array): Organizations this character has affiliation with
         """
         self.uid = uid
         self.name = name
@@ -188,9 +244,17 @@ class CharacterBase:
         self.fictionalCharacter = fictionalCharacter
         self.mirror = mirror
         self.alternateReality = alternateReality
-class ComicCollectionBase:
-    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None)
-        """Base comic collection, returned in search results
+        self.performers = performers
+        self.episodes = episodes
+        self.movies = movies
+        self.characterSpecies = characterSpecies
+        self.characterRelations = characterRelations
+        self.titles = titles
+        self.occupations = occupations
+        self.organizations = organizations
+class ComicCollectionFull:
+    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None, comicSeries=None, writers=None, artists=None, editors=None, staff=None, publishers=None, characters=None, references=None, comics=None)
+        """Full comic collection, returned when queried using UID
         Args:
             uid (string): Comic collection unique ID
             title (string): Comic collection title
@@ -206,6 +270,15 @@ class ComicCollectionBase:
             yearFrom (integer): Starting year of comic collection stories
             yearTo (integer): Ending year of comic collection stories
             photonovel (boolean): Whether it's a photonovel collection
+            comicSeries (array): Comic series this comic collection is included in
+            writers (array): Writers involved in the comic collection
+            artists (array): Artists involved in the comic collection
+            editors (array): Editors involved in the comic collection
+            staff (array): Other staff involved in the comic collection
+            publishers (array): Comic collection publishers
+            characters (array): Characters appearing in the comic collection
+            references (array): References
+            comics (array): Comics included in this comic collection
         """
         self.uid = uid
         self.title = title
@@ -221,9 +294,18 @@ class ComicCollectionBase:
         self.yearFrom = yearFrom
         self.yearTo = yearTo
         self.photonovel = photonovel
-class ComicSeriesBase:
-    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfIssues=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, miniseries=None, photonovelSeries=None)
-        """Base comic series, returned in search results
+        self.comicSeries = comicSeries
+        self.writers = writers
+        self.artists = artists
+        self.editors = editors
+        self.staff = staff
+        self.publishers = publishers
+        self.characters = characters
+        self.references = references
+        self.comics = comics
+class ComicSeriesFull:
+    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfIssues=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, miniseries=None, photonovelSeries=None, parentSeries=None, childSeries=None, publishers=None, comics=None)
+        """Full comic series, returned when queried using UID
         Args:
             uid (string): Comic series unique ID
             title (string): Comic series title
@@ -240,6 +322,10 @@ class ComicSeriesBase:
             yearTo (integer): Ending year of comic series stories
             miniseries (boolean): Whether it's a miniseries
             photonovelSeries (boolean): Whether it's a photonovel series
+            parentSeries (array): Comic series this comic series is included in
+            childSeries (array): Child comic series included in this comic series
+            publishers (array): Companies that published this comic series
+            comics (array): Comics included in this comic series
         """
         self.uid = uid
         self.title = title
@@ -256,9 +342,13 @@ class ComicSeriesBase:
         self.yearTo = yearTo
         self.miniseries = miniseries
         self.photonovelSeries = photonovelSeries
-class ComicStripBase:
-    def __init__(self, uid, title, periodical=None, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfPages=None, yearFrom=None, yearTo=None)
-        """Base comic strip, returned in search results
+        self.parentSeries = parentSeries
+        self.childSeries = childSeries
+        self.publishers = publishers
+        self.comics = comics
+class ComicStripFull:
+    def __init__(self, uid, title, periodical=None, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfPages=None, yearFrom=None, yearTo=None, comicSeries=None, writers=None, artists=None, characters=None)
+        """Full comic strip, returned when queried using UID
         Args:
             uid (string): Comic strip unique ID
             title (string): Comic strip title
@@ -270,8 +360,12 @@ class ComicStripBase:
             publishedMonthTo (integer): Month to which the comic strip was published
             publishedDayTo (integer): Day to which the comic strip was published
             numberOfPages (integer): Number of pages
-            yearFrom (integer): Starting year of comic strip story
-            yearTo (integer): Ending year of comic strip story
+            yearFrom (integer): Starting year of comic strip stories
+            yearTo (integer): Ending year of comic strip stories
+            comicSeries (array): Comic series this comic strip is included in
+            writers (array): Writers involved in the comic strip
+            artists (array): Artists involved in the comic strip
+            characters (array): Characters appearing in the comic strip
         """
         self.uid = uid
         self.title = title
@@ -285,9 +379,13 @@ class ComicStripBase:
         self.numberOfPages = numberOfPages
         self.yearFrom = yearFrom
         self.yearTo = yearTo
-class ComicsBase:
-    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None, adaptation=None)
-        """Base comics, returned in search results
+        self.comicSeries = comicSeries
+        self.writers = writers
+        self.artists = artists
+        self.characters = characters
+class ComicsFull:
+    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None, adaptation=None, comicSeries=None, writers=None, artists=None, editors=None, staff=None, publishers=None, characters=None, references=None, comicCollections=None)
+        """Full comics, returned when queried using UID
         Args:
             uid (string): Comics unique ID
             title (string): Comics title
@@ -300,10 +398,19 @@ class ComicsBase:
             numberOfPages (integer): Number of pages
             stardateFrom (number): Starting stardate of comic story
             stardateTo (number): Ending stardate of comic story
-            yearFrom (integer): Starting year of comic story
+            yearFrom (integer): Starting year of comic  story
             yearTo (integer): Ending year of comic story
             photonovel (boolean): Whether it's a photonovel
             adaptation (boolean): Whether it's an adaptation of an episode or a movie
+            comicSeries (array): Comic series this comics is included in
+            writers (array): Writers involved in the comics
+            artists (array): Artists involved in the comics
+            editors (array): Editors involved in the comics
+            staff (array): Other staff involved in the comics
+            publishers (array): Comics publishers
+            characters (array): Characters appearing in the comics
+            references (array): References
+            comicCollections (array): Comic collections this comics is included in
         """
         self.uid = uid
         self.title = title
@@ -320,9 +427,18 @@ class ComicsBase:
         self.yearTo = yearTo
         self.photonovel = photonovel
         self.adaptation = adaptation
-class CompanyBase:
+        self.comicSeries = comicSeries
+        self.writers = writers
+        self.artists = artists
+        self.editors = editors
+        self.staff = staff
+        self.publishers = publishers
+        self.characters = characters
+        self.references = references
+        self.comicCollections = comicCollections
+class CompanyFull:
     def __init__(self, uid, name, broadcaster=None, collectibleCompany=None, conglomerate=None, digitalVisualEffectsCompany=None, distributor=None, gameCompany=None, filmEquipmentCompany=None, makeUpEffectsStudio=None, mattePaintingCompany=None, modelAndMiniatureEffectsCompany=None, postProductionCompany=None, productionCompany=None, propCompany=None, recordLabel=None, specialEffectsCompany=None, tvAndFilmProductionCompany=None, videoGameCompany=None)
-        """Base company, returned in search results
+        """Full company, returned when queried using UID
         Args:
             uid (string): Company unique ID
             name (string): Company name
@@ -363,19 +479,24 @@ class CompanyBase:
         self.specialEffectsCompany = specialEffectsCompany
         self.tvAndFilmProductionCompany = tvAndFilmProductionCompany
         self.videoGameCompany = videoGameCompany
-class ConflictBase:
-    def __init__(self, uid, name, yearFrom=None, yearTo=None, earthConflict=None, federationWar=None, klingonWar=None, dominionWarBattle=None, alternateReality=None)
+class ConflictFull:
+    def __init__(self, uid, name, yearFrom=None, yearTo=None, earthConflict=None, federationWar=None, klingonWar=None, dominionWarBattle=None, alternateReality=None, locations=None, firstSideBelligerents=None, firstSideCommanders=None, secondSideBelligerents=None, secondSideCommanders=None)
         """Base conflict, returned in search results
         Args:
             uid (string): Conflict unique ID
             name (string): Conflict name
             yearFrom (integer): Starting year of the conflict
             yearTo (integer): Ending year of the conflict
-            earthConflict (boolean): Whether it was an Earth conflict
-            federationWar (boolean): Whether this conflict is part of war involving Federation
-            klingonWar (boolean): Whether this conflict is part of war involving the Klingons
+            earthConflict (boolean): Whether it is an Earth conflict
+            federationWar (boolean): Whether this conflict is a part of war involving Federation
+            klingonWar (boolean): Whether this conflict is a part of war involving the Klingons
             dominionWarBattle (boolean): Whether this conflict is a Dominion war battle
             alternateReality (boolean): Whether this conflict is from alternate reality
+            locations (array): Locations this conflict occurred at
+            firstSideBelligerents (array): Organization involved in conflict on first side
+            firstSideCommanders (array): Commanders involved in conflict on first side
+            secondSideBelligerents (array): Organization involved in conflict on second side
+            secondSideCommanders (array): Commanders involved in conflict on second side
         """
         self.uid = uid
         self.name = name
@@ -386,9 +507,14 @@ class ConflictBase:
         self.klingonWar = klingonWar
         self.dominionWarBattle = dominionWarBattle
         self.alternateReality = alternateReality
-class ElementBase:
+        self.locations = locations
+        self.firstSideBelligerents = firstSideBelligerents
+        self.firstSideCommanders = firstSideCommanders
+        self.secondSideBelligerents = secondSideBelligerents
+        self.secondSideCommanders = secondSideCommanders
+class ElementFull:
     def __init__(self, uid, name, symbol=None, atomicNumber=None, atomicWeight=None, transuranium=None, gammaSeries=None, hypersonicSeries=None, megaSeries=None, omegaSeries=None, transonicSeries=None, worldSeries=None)
-        """Base element, returned in search results
+        """Full element, returned when queried using UID
         Args:
             uid (string): Element unique ID
             name (string): Element name
@@ -415,17 +541,17 @@ class ElementBase:
         self.omegaSeries = omegaSeries
         self.transonicSeries = transonicSeries
         self.worldSeries = worldSeries
-class EpisodeBase:
-    def __init__(self, uid, title, titleGerman=None, titleItalian=None, titleJapanese=None, series=None, season=None, seasonNumber=None, episodeNumber=None, productionSerialNumber=None, featureLength=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usAirDate=None, finalScriptDate=None)
-        """Base episode, returned in search results
+class EpisodeFull:
+    def __init__(self, uid, title, titleGerman=None, titleItalian=None, titleJapanese=None, series=None, season=None, seasonNumber=None, episodeNumber=None, productionSerialNumber=None, featureLength=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usAirDate=None, finalScriptDate=None, writers=None, teleplayAuthors=None, storyAuthors=None, directors=None, performers=None, stuntPerformers=None, standInPerformers=None, characters=None)
+        """Full episode, returned when queried using UID
         Args:
             uid (string): Episode unique ID
             title (string): Episode title
             titleGerman (string): Episode title in German
             titleItalian (string): Episode title in Italian
             titleJapanese (string): Episode title in Japanese
-            series (#/definitions/seriesHeader): Series this episode belongs to
-            season (#/definitions/seasonHeader): Season this episode belongs to
+            series (#/definitions/SeriesBase): Series this episode belongs to
+            season (#/definitions/SeasonBase): Season this episode belongs to
             seasonNumber (integer): Season number
             episodeNumber (integer): Episode number in season
             productionSerialNumber (string): Production serial number
@@ -436,6 +562,14 @@ class EpisodeBase:
             yearTo (integer): Ending year of episode story
             usAirDate (string): Date the episode was first aired in the United States
             finalScriptDate (string): Date the episode script was completed
+            writers (array): Writers involved in the episode
+            teleplayAuthors (array): Teleplay authors involved in the episode
+            storyAuthors (array): Story authors involved in the episode
+            directors (array): Directors authors involved in the episode
+            performers (array): Performers appearing in the episode
+            stuntPerformers (array): Stunt performers appearing in the episode
+            standInPerformers (array): Stand-in performers appearing in the episode
+            characters (array): Characters appearing in the episode
         """
         self.uid = uid
         self.title = title
@@ -454,16 +588,24 @@ class EpisodeBase:
         self.yearTo = yearTo
         self.usAirDate = usAirDate
         self.finalScriptDate = finalScriptDate
-class FoodBase:
+        self.writers = writers
+        self.teleplayAuthors = teleplayAuthors
+        self.storyAuthors = storyAuthors
+        self.directors = directors
+        self.performers = performers
+        self.stuntPerformers = stuntPerformers
+        self.standInPerformers = standInPerformers
+        self.characters = characters
+class FoodFull:
     def __init__(self, uid, name, earthlyOrigin=None, dessert=None, fruit=None, herbOrSpice=None, sauce=None, soup=None, beverage=None, alcoholicBeverage=None, juice=None, tea=None)
-        """Base food, returned in search results
+        """Full food, returned when queried using UID
         Args:
             uid (string): Food unique ID
             name (string): Food name
             earthlyOrigin (boolean): Whether it's of earthly origin
             dessert (boolean): Whether it's a dessert
             fruit (boolean): Whether it's a fruit
-            herbOrSpice (boolean): Whether it's a herb or a spice
+            herbOrSpice (boolean): Whether it's an herb or a spice
             sauce (boolean): Whether it's a sauce
             soup (boolean): Whether it's a soup
             beverage (boolean): Whether it's a beverage
@@ -483,9 +625,9 @@ class FoodBase:
         self.alcoholicBeverage = alcoholicBeverage
         self.juice = juice
         self.tea = tea
-class LiteratureBase:
+class LiteratureFull:
     def __init__(self, uid, title, earthlyOrigin=None, shakespeareanWork=None, report=None, scientificLiterature=None, technicalManual=None, religiousLiterature=None)
-        """Base literature, returned in search results
+        """Full literature, returned when queried using UID
         Args:
             uid (string): Literature unique ID
             title (string): Literature title
@@ -504,9 +646,9 @@ class LiteratureBase:
         self.scientificLiterature = scientificLiterature
         self.technicalManual = technicalManual
         self.religiousLiterature = religiousLiterature
-class LocationBase:
+class LocationFull:
     def __init__(self, uid, name, earthlyLocation=None, fictionalLocation=None, religiousLocation=None, geographicalLocation=None, bodyOfWater=None, country=None, subnationalEntity=None, settlement=None, usSettlement=None, bajoranSettlement=None, colony=None, landform=None, landmark=None, road=None, structure=None, shipyard=None, buildingInterior=None, establishment=None, medicalEstablishment=None, ds9Establishment=None, school=None, mirror=None, alternateReality=None)
-        """Base location, returned in search results
+        """Full location, returned when queried using UID
         Args:
             uid (string): Location unique ID
             name (string): Location name
@@ -559,9 +701,9 @@ class LocationBase:
         self.school = school
         self.mirror = mirror
         self.alternateReality = alternateReality
-class MagazineBase:
-    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, issueNumber=None)
-        """Base magazine, returned in search results
+class MagazineFull:
+    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, issueNumber=None, magazineSeries=None, editors=None, publishers=None)
+        """Full magazine, returned when queried using UID
         Args:
             uid (string): Magazine unique ID
             title (string): Magazine title
@@ -573,6 +715,9 @@ class MagazineBase:
             coverDay (integer): Cover publication day
             numberOfPages (integer): Number of pages
             issueNumber (string): Magazine issue number
+            magazineSeries (array): Magazine series this magazine is included in
+            editors (array): Editors involved in the magazine
+            publishers (array): Magazine publishers
         """
         self.uid = uid
         self.title = title
@@ -584,9 +729,12 @@ class MagazineBase:
         self.coverDay = coverDay
         self.numberOfPages = numberOfPages
         self.issueNumber = issueNumber
-class MagazineSeriesBase:
-    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfIssues=None)
-        """Base magazine series, returned in search results
+        self.magazineSeries = magazineSeries
+        self.editors = editors
+        self.publishers = publishers
+class MagazineSeriesFull:
+    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfIssues=None, publishers=None, editors=None, magazines=None)
+        """Full magazine series, returned when queried using UID
         Args:
             uid (string): Magazine series unique ID
             title (string): Magazine series title
@@ -595,6 +743,9 @@ class MagazineSeriesBase:
             publishedYearTo (integer): Year to which the magazine series was published
             publishedMonthTo (integer): Month to which the magazine series was published
             numberOfIssues (integer): Number of issues
+            publishers (array): Companies that published this magazine series
+            editors (array): Editors involved in the magazine series
+            magazines (array): Magazines included in this magazine series
         """
         self.uid = uid
         self.title = title
@@ -603,9 +754,12 @@ class MagazineSeriesBase:
         self.publishedYearTo = publishedYearTo
         self.publishedMonthTo = publishedMonthTo
         self.numberOfIssues = numberOfIssues
-class MaterialBase:
+        self.publishers = publishers
+        self.editors = editors
+        self.magazines = magazines
+class MaterialFull:
     def __init__(self, uid, name, chemicalCompound=None, biochemicalCompound=None, drug=None, poisonousSubstance=None, explosive=None, gemstone=None, alloyOrComposite=None, fuel=None, mineral=None, preciousMaterial=None)
-        """Base material, returned in search results
+        """Full material, returned when queried using UID
         Args:
             uid (string): Material unique ID
             name (string): Material name
@@ -632,9 +786,9 @@ class MaterialBase:
         self.fuel = fuel
         self.mineral = mineral
         self.preciousMaterial = preciousMaterial
-class MedicalConditionBase:
+class MedicalConditionFull:
     def __init__(self, uid, name, psychologicalCondition=None)
-        """Base medical condition, returned in search results
+        """Full medical condition, returned when queried using UID
         Args:
             uid (string): Medical condition unique ID
             name (string): Medical condition name
@@ -643,13 +797,13 @@ class MedicalConditionBase:
         self.uid = uid
         self.name = name
         self.psychologicalCondition = psychologicalCondition
-class MovieBase:
-    def __init__(self, uid, title, mainDirector=None, titleBulgarian=None, titleCatalan=None, titleChineseTraditional=None, titleGerman=None, titleItalian=None, titleJapanese=None, titlePolish=None, titleRussian=None, titleSerbian=None, titleSpanish=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usReleaseDate=None)
-        """Base movie, returned in search results
+class MovieFull:
+    def __init__(self, uid, title, mainDirector=None, titleBulgarian=None, titleCatalan=None, titleChineseTraditional=None, titleGerman=None, titleItalian=None, titleJapanese=None, titlePolish=None, titleRussian=None, titleSerbian=None, titleSpanish=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usReleaseDate=None, writers=None, screenplayAuthors=None, storyAuthors=None, directors=None, producers=None, staff=None, performers=None, stuntPerformers=None, standInPerformers=None, characters=None)
+        """Full movie, returned when queried using UID
         Args:
             uid (string): Movie unique ID
             title (string): Movie title
-            mainDirector (#/definitions/StaffHeader): Director of the movie
+            mainDirector (#/definitions/StaffBase): Director of the movie
             titleBulgarian (string): Movie title in Bulgarian
             titleCatalan (string): Movie title in Catalan
             titleChineseTraditional (string): Movie title in Chinese traditional
@@ -665,6 +819,16 @@ class MovieBase:
             yearFrom (integer): Starting year of movie story
             yearTo (integer): Ending year of movie story
             usReleaseDate (string): Date the movie was first released in the United States
+            writers (array): Writers involved in the movie
+            screenplayAuthors (array): Screenplay authors involved in the movie
+            storyAuthors (array): Story authors authors involved in the movie
+            directors (array): Directors authors involved in the movie
+            producers (array): Producers authors involved in the movie
+            staff (array): Other staff involved in the movie
+            performers (array): Performers appearing in the movie
+            stuntPerformers (array): Stunt performers appearing in the movie
+            standInPerformers (array): Stand-in performers appearing in the movie
+            characters (array): Characters appearing in the movie
         """
         self.uid = uid
         self.title = title
@@ -684,24 +848,36 @@ class MovieBase:
         self.yearFrom = yearFrom
         self.yearTo = yearTo
         self.usReleaseDate = usReleaseDate
-class OccupationBase:
-    def __init__(self, uid, name, legalOccupation=None, medicalOccupation=None, scientificOccupation=None)
-        """Base occupations, returned in search results
+        self.writers = writers
+        self.screenplayAuthors = screenplayAuthors
+        self.storyAuthors = storyAuthors
+        self.directors = directors
+        self.producers = producers
+        self.staff = staff
+        self.performers = performers
+        self.stuntPerformers = stuntPerformers
+        self.standInPerformers = standInPerformers
+        self.characters = characters
+class OccupationFull:
+    def __init__(self, uid, name, legalOccupation=None, medicalOccupation=None, scientificOccupation=None, characters=None)
+        """Full occupation, returned when queried using UID
         Args:
             uid (string): Occupation unique ID
             name (string): Occupation name
             legalOccupation (boolean): Whether it's a legal occupation
             medicalOccupation (boolean): Whether it's a medical occupation
             scientificOccupation (boolean): Whether it's a scientific occupation
+            characters (array): Characters with this occupation
         """
         self.uid = uid
         self.name = name
         self.legalOccupation = legalOccupation
         self.medicalOccupation = medicalOccupation
         self.scientificOccupation = scientificOccupation
-class OrganizationBase:
-    def __init__(self, uid, name, government=None, intergovernmentalOrganization=None, researchOrganization=None, sportOrganization=None, medicalOrganization=None, militaryOrganization=None, militaryUnit=None, governmentAgency=None, lawEnforcementAgency=None, prisonOrPenalColony=None, mirror=None, alternateReality=None)
-        """Base organization, returned in search results
+        self.characters = characters
+class OrganizationFull:
+    def __init__(self, uid, name, government=None, intergovernmentalOrganization=None, researchOrganization=None, sportOrganization=None, medicalOrganization=None, militaryOrganization=None, militaryUnit=None, governmentAgency=None, lawEnforcementAgency=None, prisonOrPenalColony=None, mirror=None, alternateReality=None, characters=None)
+        """Full organization, returned when queried using UID
         Args:
             uid (string): Organization unique ID
             name (string): Organization name
@@ -716,7 +892,8 @@ class OrganizationBase:
             lawEnforcementAgency (boolean): Whether it's a law enforcement agency
             prisonOrPenalColony (boolean): Whether it's a prison or penal colony
             mirror (boolean): Whether this organization is from mirror universe
-            alternateReality (boolean): Whether this location is from alternate reality
+            alternateReality (boolean): Whether this organization is from alternate reality
+            characters (array): Characters belonging to this organization
         """
         self.uid = uid
         self.name = name
@@ -732,9 +909,10 @@ class OrganizationBase:
         self.prisonOrPenalColony = prisonOrPenalColony
         self.mirror = mirror
         self.alternateReality = alternateReality
-class PerformerBase:
-    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, animalPerformer=None, disPerformer=None, ds9Performer=None, entPerformer=None, filmPerformer=None, standInPerformer=None, stuntPerformer=None, tasPerformer=None, tngPerformer=None, tosPerformer=None, videoGamePerformer=None, voicePerformer=None, voyPerformer=None)
-        """Base performer, returned in search results
+        self.characters = characters
+class PerformerFull:
+    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, animalPerformer=None, disPerformer=None, ds9Performer=None, entPerformer=None, filmPerformer=None, standInPerformer=None, stuntPerformer=None, tasPerformer=None, tngPerformer=None, tosPerformer=None, videoGamePerformer=None, voicePerformer=None, voyPerformer=None, episodesPerformances=None, episodesStuntPerformances=None, episodesStandInPerformances=None, moviesPerformances=None, moviesStuntPerformances=None, moviesStandInPerformances=None, characters=None)
+        """Full performer, returned when queried using UID
         Args:
             uid (string): Performer unique ID
             name (string): Performer name
@@ -757,6 +935,13 @@ class PerformerBase:
             videoGamePerformer (boolean): Whether it's a video game performer
             voicePerformer (boolean): Whether it's a voice performer
             voyPerformer (boolean): Whether it's a performer that appeared in Star Trek: Voyager
+            episodesPerformances (array): Episodes in which this person appeared as a performer
+            episodesStuntPerformances (array): Episodes in which this person appeared as a stunt performer
+            episodesStandInPerformances (array): Episodes in which this person appeared as a stand-in performer
+            moviesPerformances (array): Movies in which this person appeared as a performer
+            moviesStuntPerformances (array): Movies in which this person appeared as a stunt performer
+            moviesStandInPerformances (array): Movies in which this person appeared as a stand-in performer
+            characters (array): Characters played by this performer
         """
         self.uid = uid
         self.name = name
@@ -779,24 +964,33 @@ class PerformerBase:
         self.videoGamePerformer = videoGamePerformer
         self.voicePerformer = voicePerformer
         self.voyPerformer = voyPerformer
-class SeasonBase:
-    def __init__(self, uid, title, series=None, seasonNumber=None, numberOfEpisodes=None)
-        """Base season, returned in search results
+        self.episodesPerformances = episodesPerformances
+        self.episodesStuntPerformances = episodesStuntPerformances
+        self.episodesStandInPerformances = episodesStandInPerformances
+        self.moviesPerformances = moviesPerformances
+        self.moviesStuntPerformances = moviesStuntPerformances
+        self.moviesStandInPerformances = moviesStandInPerformances
+        self.characters = characters
+class SeasonFull:
+    def __init__(self, uid, title, series=None, seasonNumber=None, numberOfEpisodes=None, episodes=None)
+        """Full location, returned when queried using UID
         Args:
             uid (string): Season unique ID
             title (string): Season title
-            series (#/definitions/SeriesHeader): Series this season belongs to
+            series (#/definitions/SeriesBase): Series this season belongs to
             seasonNumber (integer): Season number in series
             numberOfEpisodes (integer): Number of episodes in this season
+            episodes (array): Episodes in this season
         """
         self.uid = uid
         self.title = title
         self.series = series
         self.seasonNumber = seasonNumber
         self.numberOfEpisodes = numberOfEpisodes
-class SeriesBase:
-    def __init__(self, uid, title, abbreviation, productionStartYear=None, productionEndYear=None, originalRunStartDate=None, originalRunEndDate=None, seasonsCount=None, episodesCount=None, featureLengthEpisodesCount=None, productionCompany=None, originalBroadcaster=None)
-        """Base series, returned in search results
+        self.episodes = episodes
+class SeriesFull:
+    def __init__(self, uid, title, abbreviation, productionStartYear=None, productionEndYear=None, originalRunStartDate=None, originalRunEndDate=None, seasonsCount=None, episodesCount=None, featureLengthEpisodesCount=None, productionCompany=None, originalBroadcaster=None, episodes=None, seasons=None)
+        """Full series, returned when queried using UID
         Args:
             uid (string): Series unique ID
             title (string): Series title
@@ -808,8 +1002,10 @@ class SeriesBase:
             seasonsCount (integer): Number of seasons
             episodesCount (integer): Number of episodes
             featureLengthEpisodesCount (integer): Number of feature length episodes
-            productionCompany (CompanyHeader): Company that produced the series
-            originalBroadcaster (CompanyHeader): Company that originally broadcasted the series
+            productionCompany (#/definitions/CompanyBase): Company that produced the series
+            originalBroadcaster (#/definitions/CompanyBase): Company that originally broadcasted the series
+            episodes (array): Episodes in the series
+            seasons (array): Seasons in the series
         """
         self.uid = uid
         self.title = title
@@ -823,31 +1019,44 @@ class SeriesBase:
         self.featureLengthEpisodesCount = featureLengthEpisodesCount
         self.productionCompany = productionCompany
         self.originalBroadcaster = originalBroadcaster
-class SoundtrackBase:
-    def __init__(self, uid, title, releaseDate=None, length=None)
-        """Base soundtrack, returned in search results
+        self.episodes = episodes
+        self.seasons = seasons
+class SoundtrackFull:
+    def __init__(self, uid, title, releaseDate=None, length=None, labels=None, composers=None, contributors=None, orchestrators=None, references=None)
+        """Full soundtrack, returned when queried using UID
         Args:
             uid (string): Soundtrack unique ID
             title (string): Soundtrack title
             releaseDate (string): Release date
             length (integer): Length, in seconds
+            labels (array): Labels this soundtrack was relesed by
+            composers (array): Composers
+            contributors (array): Other musicians that contributed to this soundtrack
+            orchestrators (array): Orchestrators
+            references (array): References
         """
         self.uid = uid
         self.title = title
         self.releaseDate = releaseDate
         self.length = length
-class SpacecraftBase:
-    def __init__(self, uid, name, registry=None, status=None, dateStatus=None, spacecraftClass=None, owner=None, operator=None)
-        """Base spacecraft, returned in search results
+        self.labels = labels
+        self.composers = composers
+        self.contributors = contributors
+        self.orchestrators = orchestrators
+        self.references = references
+class SpacecraftFull:
+    def __init__(self, uid, name, registry=None, status=None, dateStatus=None, spacecraftClass=None, owner=None, operator=None, spacecraftTypes=None)
+        """Full spacecraft, returned when queried using UID
         Args:
             uid (string): Spacecraft unique ID
             name (string): Spacecraft name
             registry (string): Spacecraft registry
             status (string): Status of a spacecraft (in prime reality, if spacecraft was in more than one realities)
             dateStatus (string): Date the spacecraft status was last known
-            spacecraftClass (#/definitions/SpacecraftClassHeader): Spacecraft class
-            owner (#/definitions/OrganizationHeader): Owner
-            operator (#/definitions/OrganizationHeader): Operator
+            spacecraftClass (#/definitions/SpacecraftClassBase): Spacecraft class
+            owner (#/definitions/OrganizationBase): Owner
+            operator (#/definitions/OrganizationBase): Operator
+            spacecraftTypes (array): Spacecraft types
         """
         self.uid = uid
         self.name = name
@@ -857,9 +1066,10 @@ class SpacecraftBase:
         self.spacecraftClass = spacecraftClass
         self.owner = owner
         self.operator = operator
-class SpacecraftClassBase:
-    def __init__(self, uid, name, numberOfDecks=None, warpCapable=None, alternateReality=None, activeFrom=None, activeTo=None, species=None, owner=None, operator=None, affiliation=None)
-        """Base spacecraft class, returned in search results
+        self.spacecraftTypes = spacecraftTypes
+class SpacecraftClassFull:
+    def __init__(self, uid, name, numberOfDecks=None, warpCapable=None, alternateReality=None, activeFrom=None, activeTo=None, species=None, owner=None, operator=None, affiliation=None, spacecraftTypes=None, spacecrafts=None)
+        """Full spacecraft class, returned when queried using UID
         Args:
             uid (string): Spacecraft class unique ID
             name (string): Spacecraft class name
@@ -869,9 +1079,11 @@ class SpacecraftClassBase:
             activeFrom (string): Starting period when this spacecraft class was in use
             activeTo (string): Ending period when this spacecraft class was in use
             species (#/definitions/SpeciesHeader): Main species affiliated
-            owner (#/definitions/OrganizationHeader): Owner
-            operator (#/definitions/OrganizationHeader): Operator
-            affiliation (#/definitions/OrganizationHeader): Affiliation
+            owner (#/definitions/OrganizationBase): Owner
+            operator (#/definitions/OrganizationBase): Operator
+            affiliation (#/definitions/OrganizationBase): Affiliation
+            spacecraftTypes (array): Spacecraft types
+            spacecrafts (array): Spacecrafts
         """
         self.uid = uid
         self.name = name
@@ -884,14 +1096,16 @@ class SpacecraftClassBase:
         self.owner = owner
         self.operator = operator
         self.affiliation = affiliation
-class SpeciesBase:
-    def __init__(self, uid, name, homeworld=None, quadrant=None, extinctSpecies=None, warpCapableSpecies=None, extraGalacticSpecies=None, humanoidSpecies=None, reptilianSpecies=None, nonCorporealSpecies=None, shapeshiftingSpecies=None, spaceborneSpecies=None, telepathicSpecies=None, transDimensionalSpecies=None, unnamedSpecies=None, alternateReality=None)
-        """Base species, returned in search results
+        self.spacecraftTypes = spacecraftTypes
+        self.spacecrafts = spacecrafts
+class SpeciesFull:
+    def __init__(self, uid, name, homeworld=None, quadrant=None, extinctSpecies=None, warpCapableSpecies=None, extraGalacticSpecies=None, humanoidSpecies=None, reptilianSpecies=None, nonCorporealSpecies=None, shapeshiftingSpecies=None, spaceborneSpecies=None, telepathicSpecies=None, transDimensionalSpecies=None, unnamedSpecies=None, alternateReality=None, characters=None)
+        """Full species, returned when queried using UID
         Args:
             uid (string): Species unique ID
             name (string): Species name
-            homeworld (#/definitions/AstronomicalObjectHeader): Homeworld of the species
-            quadrant (#/definitions/AstronomicalObjectHeader): Quadrant the species originates from
+            homeworld (#/definitions/AstronomicalObjectBase): Homeworld of the species
+            quadrant (#/definitions/AstronomicalObjectBase): Quadrant the species originates from
             extinctSpecies (boolean): Whether it's an extinct species
             warpCapableSpecies (boolean): Whether it's a warp-capable species
             extraGalacticSpecies (boolean): Whether it's an extra-galactic species
@@ -904,6 +1118,7 @@ class SpeciesBase:
             transDimensionalSpecies (boolean): Whether it's a trans-dimensional species
             unnamedSpecies (boolean): Whether it's a unnamed species
             alternateReality (boolean): Whether this species is from alternate reality
+            characters (array): Characters belonging to the species
         """
         self.uid = uid
         self.name = name
@@ -921,9 +1136,10 @@ class SpeciesBase:
         self.transDimensionalSpecies = transDimensionalSpecies
         self.unnamedSpecies = unnamedSpecies
         self.alternateReality = alternateReality
-class StaffBase:
-    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, artDepartment=None, artDirector=None, productionDesigner=None, cameraAndElectricalDepartment=None, cinematographer=None, castingDepartment=None, costumeDepartment=None, costumeDesigner=None, director=None, assistantOrSecondUnitDirector=None, exhibitAndAttractionStaff=None, filmEditor=None, linguist=None, locationStaff=None, makeupStaff=None, musicDepartment=None, composer=None, personalAssistant=None, producer=None, productionAssociate=None, productionStaff=None, publicationStaff=None, scienceConsultant=None, soundDepartment=None, specialAndVisualEffectsStaff=None, author=None, audioAuthor=None, calendarArtist=None, comicArtist=None, comicAuthor=None, comicColorArtist=None, comicInteriorArtist=None, comicInkArtist=None, comicPencilArtist=None, comicLetterArtist=None, comicStripArtist=None, gameArtist=None, gameAuthor=None, novelArtist=None, novelAuthor=None, referenceArtist=None, referenceAuthor=None, publicationArtist=None, publicationDesigner=None, publicationEditor=None, publicityArtist=None, cbsDigitalStaff=None, ilmProductionStaff=None, specialFeaturesStaff=None, storyEditor=None, studioExecutive=None, stuntDepartment=None, transportationDepartment=None, videoGameProductionStaff=None, writer=None)
-        """Base staff, returned in search results
+        self.characters = characters
+class StaffFull:
+    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, artDepartment=None, artDirector=None, productionDesigner=None, cameraAndElectricalDepartment=None, cinematographer=None, castingDepartment=None, costumeDepartment=None, costumeDesigner=None, director=None, assistantOrSecondUnitDirector=None, exhibitAndAttractionStaff=None, filmEditor=None, linguist=None, locationStaff=None, makeupStaff=None, musicDepartment=None, composer=None, personalAssistant=None, producer=None, productionAssociate=None, productionStaff=None, publicationStaff=None, scienceConsultant=None, soundDepartment=None, specialAndVisualEffectsStaff=None, author=None, audioAuthor=None, calendarArtist=None, comicArtist=None, comicAuthor=None, comicColorArtist=None, comicInteriorArtist=None, comicInkArtist=None, comicPencilArtist=None, comicLetterArtist=None, comicStripArtist=None, gameArtist=None, gameAuthor=None, novelArtist=None, novelAuthor=None, referenceArtist=None, referenceAuthor=None, publicationArtist=None, publicationDesigner=None, publicationEditor=None, publicityArtist=None, cbsDigitalStaff=None, ilmProductionStaff=None, specialFeaturesStaff=None, storyEditor=None, studioExecutive=None, stuntDepartment=None, transportationDepartment=None, videoGameProductionStaff=None, writer=None, writtenEpisodes=None, teleplayAuthoredEpisodes=None, storyAuthoredEpisodes=None, directedEpisodes=None, episodes=None, writtenMovies=None, screenplayAuthoredMovies=None, storyAuthoredMovies=None, directedMovies=None, producedMovies=None, movies=None)
+        """Full staff, returned when queried using UID
         Args:
             uid (string): Staff unique ID
             name (string): Staff name
@@ -933,7 +1149,7 @@ class StaffBase:
             placeOfBirth (string): Place the staff was born
             dateOfDeath (string): Date the staff died
             placeOfDeath (string): Place the staff died
-            artDepartment (boolean): Whether this person if from art department
+            artDepartment (boolean): Whether this person is from art department
             artDirector (boolean): Whether this person is an art director
             productionDesigner (boolean): Whether this person is a production designer
             cameraAndElectricalDepartment (boolean): Whether this person is from camera and electrical department
@@ -943,7 +1159,7 @@ class StaffBase:
             costumeDesigner (boolean): Whether this person is a custume designer
             director (boolean): Whether this person is a director
             assistantOrSecondUnitDirector (boolean): Whether this person is an assistant or secound unit director director
-            exhibitAndAttractionStaff (boolean): Whether this person is an exhibit and tttraction staff
+            exhibitAndAttractionStaff (boolean): Whether this person is an exhibit and attraction staff
             filmEditor (boolean): Whether this person is a film editor
             linguist (boolean): Whether this person is a linguist
             locationStaff (boolean): Whether this person is a location staff
@@ -978,7 +1194,7 @@ class StaffBase:
             publicationArtist (boolean): Whether this person is a publication artist
             publicationDesigner (boolean): Whether this person is a publication designer
             publicationEditor (boolean): Whether this person is a publication editor
-            publicityArtist (boolean): Whether this person is a publication artist
+            publicityArtist (boolean): Whether this person is a publicity artist
             cbsDigitalStaff (boolean): Whether this person is a part of CBS digital staff
             ilmProductionStaff (boolean): Whether this person is a part of ILM production staff
             specialFeaturesStaff (boolean): Whether this person is a special features artist
@@ -988,6 +1204,17 @@ class StaffBase:
             transportationDepartment (boolean): Whether this person is from transportation department
             videoGameProductionStaff (boolean): Whether this person is video game production staff
             writer (boolean): Whether this person is a writer
+            writtenEpisodes (array): Episodes written by this person
+            teleplayAuthoredEpisodes (array): Episodes to which this person has written teleplay
+            storyAuthoredEpisodes (array): Episodes to which this person has written story
+            directedEpisodes (array): Episodes directed by this person
+            episodes (array): Episodes on which this person worked
+            writtenMovies (array): Movies written by this person
+            screenplayAuthoredMovies (array): Movies to which this person has written screenplay
+            storyAuthoredMovies (array): Movies to which this person has written story
+            directedMovies (array): Movies directed by this person
+            producedMovies (array): Movies produced by this person
+            movies (array): Movies on which this person worked
         """
         self.uid = uid
         self.name = name
@@ -1052,9 +1279,20 @@ class StaffBase:
         self.transportationDepartment = transportationDepartment
         self.videoGameProductionStaff = videoGameProductionStaff
         self.writer = writer
-class TechnologyBase:
+        self.writtenEpisodes = writtenEpisodes
+        self.teleplayAuthoredEpisodes = teleplayAuthoredEpisodes
+        self.storyAuthoredEpisodes = storyAuthoredEpisodes
+        self.directedEpisodes = directedEpisodes
+        self.episodes = episodes
+        self.writtenMovies = writtenMovies
+        self.screenplayAuthoredMovies = screenplayAuthoredMovies
+        self.storyAuthoredMovies = storyAuthoredMovies
+        self.directedMovies = directedMovies
+        self.producedMovies = producedMovies
+        self.movies = movies
+class TechnologyFull:
     def __init__(self, uid, name, borgTechnology=None, borgComponent=None, communicationsTechnology=None, computerTechnology=None, computerProgramming=None, subroutine=None, database=None, energyTechnology=None, fictionalTechnology=None, holographicTechnology=None, identificationTechnology=None, lifeSupportTechnology=None, sensorTechnology=None, shieldTechnology=None, tool=None, culinaryTool=None, engineeringTool=None, householdTool=None, medicalEquipment=None, transporterTechnology=None)
-        """Base technology, returned in search results
+        """Full technology, returned when queried using UID
         Args:
             uid (string): Technology unique ID
             name (string): Technology name
@@ -1101,9 +1339,9 @@ class TechnologyBase:
         self.householdTool = householdTool
         self.medicalEquipment = medicalEquipment
         self.transporterTechnology = transporterTechnology
-class TitleBase:
-    def __init__(self, uid, name, militaryRank=None, fleetRank=None, religiousTitle=None, position=None, mirror=None)
-        """Base title, returned in search results
+class TitleFull:
+    def __init__(self, uid, name, militaryRank=None, fleetRank=None, religiousTitle=None, position=None, mirror=None, characters=None)
+        """Full title, returned when queried using UID
         Args:
             uid (string): Title unique ID
             name (string): Title name
@@ -1112,6 +1350,7 @@ class TitleBase:
             religiousTitle (boolean): Whether it's a religious title
             position (boolean): Whether it's a position
             mirror (boolean): Whether this title is from mirror universe
+            characters (array): Characters that holds this title
         """
         self.uid = uid
         self.name = name
@@ -1120,41 +1359,44 @@ class TitleBase:
         self.religiousTitle = religiousTitle
         self.position = position
         self.mirror = mirror
-class TradingCardBase:
-    def __init__(self, uid, name, number=None, releaseYear=None, productionRun=None, tradingCardSet=None, tradingCardDeck=None)
-        """Base trading card, returned in search results
+        self.characters = characters
+class TradingCardFull:
+    def __init__(self, uid, name, tradingCardSet=None, tradingCardDeck=None, number=None, releaseYear=None, productionRun=None)
+        """Full trading card, returned when queried using UID
         Args:
             uid (string): Trading card unique ID
             name (string): Trading card name
+            tradingCardSet (#/definitions/TradingCardSetBase): Trading card set this card belongs to
+            tradingCardDeck (#/definitions/TradingCardDeckBase): Trading card deck this card belongs to
             number (string): Trading card number
             releaseYear (integer): Release year, if set was releases over multiple years
             productionRun (integer): Production run, if different from trading card set production run
-            tradingCardSet (#/definitions/TradingCardSetHeader): Trading card set this card belongs to
-            tradingCardDeck (#/definitions/TradingCardDeckHeader): Trading card deck this card belongs to
         """
         self.uid = uid
         self.name = name
+        self.tradingCardSet = tradingCardSet
+        self.tradingCardDeck = tradingCardDeck
         self.number = number
         self.releaseYear = releaseYear
         self.productionRun = productionRun
-        self.tradingCardSet = tradingCardSet
-        self.tradingCardDeck = tradingCardDeck
-class TradingCardDeckBase:
-    def __init__(self, uid, name, frequency=None, tradingCardSet=None)
-        """Base trading card deck, returned in search results
+class TradingCardDeckFull:
+    def __init__(self, uid, name, frequency=None, tradingCardSet=None, tradingCards=None)
+        """Full trading card deck, returned when queried using UID
         Args:
             uid (string): Trading card deck unique ID
             name (string): Trading card deck name
             frequency (string): Frequency with which this deck occur in it's set
             tradingCardSet (#/definitions/TradingCardSetHeader): Trading card set this deck belongs to
+            tradingCards (array): Trading cards in this deck
         """
         self.uid = uid
         self.name = name
         self.frequency = frequency
         self.tradingCardSet = tradingCardSet
-class TradingCardSetBase:
-    def __init__(self, uid, name, releaseYear=None, releaseMonth=None, releaseDay=None, cardsPerPack=None, packsPerBox=None, boxesPerCase=None, productionRun=None, productionRunUnit=None, cardWidth=None, cardHeight=None)
-        """Base trading card set, returned in search results
+        self.tradingCards = tradingCards
+class TradingCardSetFull:
+    def __init__(self, uid, name, releaseYear=None, releaseMonth=None, releaseDay=None, cardsPerPack=None, packsPerBox=None, boxesPerCase=None, productionRun=None, productionRunUnit=None, cardWidth=None, cardHeight=None, manufacturers=None, tradingCardDecks=None, tradingCards=None, countriesOfOrigin=None)
+        """Full trading card set, returned when queried using UID
         Args:
             uid (string): Trading card set unique ID
             name (string): Trading card set name
@@ -1168,6 +1410,10 @@ class TradingCardSetBase:
             productionRunUnit (#/definitions/ProductionRunUnit): Production run unit
             cardWidth (number): Card width, in inches
             cardHeight (number): Card height, in inches
+            manufacturers (array): Manufacturers
+            tradingCardDecks (array): Trading card decks in this set
+            tradingCards (array): Trading cards in this set
+            countriesOfOrigin (array): Countries of origin
         """
         self.uid = uid
         self.name = name
@@ -1181,9 +1427,13 @@ class TradingCardSetBase:
         self.productionRunUnit = productionRunUnit
         self.cardWidth = cardWidth
         self.cardHeight = cardHeight
-class VideoGameBase:
-    def __init__(self, uid, title, releaseDate=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, systemRequirements=None)
-        """Base video game, returned in search results
+        self.manufacturers = manufacturers
+        self.tradingCardDecks = tradingCardDecks
+        self.tradingCards = tradingCards
+        self.countriesOfOrigin = countriesOfOrigin
+class VideoGameFull:
+    def __init__(self, uid, title, releaseDate=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, systemRequirements=None, publishers=None, developers=None, platforms=None, genres=None, ratings=None, references=None)
+        """Full video game, returned when queried using UID
         Args:
             uid (string): Video game unique ID
             title (string): Video game title
@@ -1193,6 +1443,12 @@ class VideoGameBase:
             yearFrom (integer): Starting year of video game story
             yearTo (integer): Ending year of video game story
             systemRequirements (string): System requirements
+            publishers (array): Publishers
+            developers (array): Developers
+            platforms (array): Platforms
+            genres (array): Genres
+            ratings (array): Ratings
+            references (array): References
         """
         self.uid = uid
         self.title = title
@@ -1202,14 +1458,20 @@ class VideoGameBase:
         self.yearFrom = yearFrom
         self.yearTo = yearTo
         self.systemRequirements = systemRequirements
-class VideoReleaseBase:
-    def __init__(self, uid, title, series=None, season=None, format=None, numberOfEpisodes=None, numberOfFeatureLengthEpisodes=None, numberOfDataCarriers=None, runTime=None, yearFrom=None, yearTo=None, regionFreeReleaseDate=None, region1AReleaseDate=None, region1SlimlineReleaseDate=None, region2BReleaseDate=None, region2SlimlineReleaseDate=None, region4AReleaseDate=None, region4SlimlineReleaseDate=None, amazonDigitalRelease=None, dailymotionDigitalRelease=None, googlePlayDigitalRelease=None, iTunesDigitalRelease=None, ultraVioletDigitalRelease=None, vimeoDigitalRelease=None, vuduDigitalRelease=None, xboxSmartGlassDigitalRelease=None, youTubeDigitalRelease=None, netflixDigitalRelease=None)
-        """Base video release, returned in search results
+        self.publishers = publishers
+        self.developers = developers
+        self.platforms = platforms
+        self.genres = genres
+        self.ratings = ratings
+        self.references = references
+class VideoReleaseFull:
+    def __init__(self, uid, title, series=None, season=None, format=None, numberOfEpisodes=None, numberOfFeatureLengthEpisodes=None, numberOfDataCarriers=None, runTime=None, yearFrom=None, yearTo=None, regionFreeReleaseDate=None, region1AReleaseDate=None, region1SlimlineReleaseDate=None, region2BReleaseDate=None, region2SlimlineReleaseDate=None, region4AReleaseDate=None, region4SlimlineReleaseDate=None, amazonDigitalRelease=None, dailymotionDigitalRelease=None, googlePlayDigitalRelease=None, iTunesDigitalRelease=None, ultraVioletDigitalRelease=None, vimeoDigitalRelease=None, vuduDigitalRelease=None, xboxSmartGlassDigitalRelease=None, youTubeDigitalRelease=None, netflixDigitalRelease=None, references=None, ratings=None, languages=None, languagesSubtitles=None, languagesDubbed=None)
+        """Full video release, returned when queried using UID
         Args:
             uid (string): Video release unique ID
             title (string): Video release title
-            series (#/definitions/SeriesHeader): Series this video release is associated with
-            season (#/definitions/SeasonHeader): Season this video release is associated with
+            series (#/definitions/SeriesBase): Series this video release is associated with
+            season (#/definitions/SeasonBase): Season this video release is associated with
             format (#/definitions/VideoReleaseFormat): Video release format
             numberOfEpisodes (integer): Number of episodes
             numberOfFeatureLengthEpisodes (integer): Number of feature-length episodes
@@ -1234,6 +1496,11 @@ class VideoReleaseBase:
             xboxSmartGlassDigitalRelease (boolean): Whether this video has been release on Xbox SmartGlass
             youTubeDigitalRelease (boolean): Whether this video has been release on YouTube
             netflixDigitalRelease (boolean): Whether this video has been release on Netflix
+            references (array): References
+            ratings (array): Ratings
+            languages (array): Languages of audio track
+            languagesSubtitles (array): Languages of subtitles
+            languagesDubbed (array): Languages that are available with dubbing
         """
         self.uid = uid
         self.title = title
@@ -1263,13 +1530,18 @@ class VideoReleaseBase:
         self.xboxSmartGlassDigitalRelease = xboxSmartGlassDigitalRelease
         self.youTubeDigitalRelease = youTubeDigitalRelease
         self.netflixDigitalRelease = netflixDigitalRelease
-class WeaponBase:
+        self.references = references
+        self.ratings = ratings
+        self.languages = languages
+        self.languagesSubtitles = languagesSubtitles
+        self.languagesDubbed = languagesDubbed
+class WeaponFull:
     def __init__(self, uid, name, handHeldWeapon=None, laserTechnology=None, plasmaTechnology=None, photonicTechnology=None, phaserTechnology=None, mirror=None, alternateReality=None)
-        """Base weapon, returned in search results
+        """Full weapon, returned when queried using UID
         Args:
             uid (string): Weapon unique ID
             name (string): Weapon name
-            handHeldWeapon (boolean): Whether it's hand-help weapon
+            handHeldWeapon (boolean): Whether it's a hand-help weapon
             laserTechnology (boolean): Whether it's a laser technology
             plasmaTechnology (boolean): Whether it's a plasma technology
             photonicTechnology (boolean): Whether it's a photonic technology

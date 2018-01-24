@@ -3,7 +3,7 @@ class Animal:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return AnimalFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -12,7 +12,7 @@ class AstronomicalObject:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return AstronomicalObjectFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -21,7 +21,7 @@ class Book:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return BookFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -30,7 +30,7 @@ class BookCollection:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return BookCollectionFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -39,7 +39,7 @@ class BookSeries:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return BookSeriesFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -48,7 +48,7 @@ class Character:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return CharacterFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -57,7 +57,7 @@ class ComicCollection:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return ComicCollectionFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -66,7 +66,7 @@ class ComicSeries:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return ComicSeriesFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -75,7 +75,7 @@ class ComicStrip:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return ComicStripFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -84,16 +84,7 @@ class Comics:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class Common:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
+            return ComicsFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -102,7 +93,7 @@ class Company:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return CompanyFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -111,34 +102,7 @@ class Conflict:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class ContentLanguage:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class ContentRating:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class Country:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
+            return ConflictFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -147,7 +111,7 @@ class Element:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return ElementFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -156,7 +120,7 @@ class Episode:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return EpisodeFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -165,16 +129,7 @@ class Food:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class Genre:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
+            return FoodFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -183,7 +138,7 @@ class Literature:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return LiteratureFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -192,7 +147,7 @@ class Location:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return LocationFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -201,7 +156,7 @@ class Magazine:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return MagazineFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -210,7 +165,7 @@ class MagazineSeries:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return MagazineSeriesFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -219,7 +174,7 @@ class Material:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return MaterialFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -228,7 +183,7 @@ class MedicalCondition:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return MedicalConditionFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -237,7 +192,7 @@ class Movie:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return MovieFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -246,7 +201,7 @@ class Occupation:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return OccupationFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -255,7 +210,7 @@ class Organization:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return OrganizationFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -264,25 +219,7 @@ class Performer:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class Platform:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class Reference:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
+            return PerformerFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -291,7 +228,7 @@ class Season:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return SeasonFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -300,7 +237,7 @@ class Series:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return SeriesFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -309,7 +246,7 @@ class Soundtrack:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return SoundtrackFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -318,7 +255,7 @@ class Spacecraft:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return SpacecraftFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -327,16 +264,7 @@ class SpacecraftClass:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
-        def search(self, searchCriteria):
-            pass
-            
-class SpacecraftType:
-        def __init__(self, url, apiKey):
-            self.url = url
-            self.apiKey = apiKey
-        def get(self, uid):
-            pass
+            return SpacecraftClassFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -345,7 +273,7 @@ class Species:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return SpeciesFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -354,7 +282,7 @@ class Staff:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return StaffFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -363,7 +291,7 @@ class Technology:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return TechnologyFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -372,7 +300,7 @@ class Title:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return TitleFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -381,7 +309,7 @@ class TradingCard:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return TradingCardFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -390,7 +318,7 @@ class TradingCardDeck:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return TradingCardDeckFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -399,7 +327,7 @@ class TradingCardSet:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return TradingCardSetFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -408,7 +336,7 @@ class VideoGame:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return VideoGameFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -417,7 +345,7 @@ class VideoRelease:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return VideoReleaseFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
@@ -426,7 +354,7 @@ class Weapon:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            pass
+            return WeaponFullResponse(uid)
         def search(self, searchCriteria):
             pass
             
