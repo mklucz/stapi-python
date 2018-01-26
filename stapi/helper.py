@@ -80,7 +80,7 @@ def helper_klasy_base():
     for i in range(len(snake_case)):
         output_code = "class " + PascalCase[i]+ "Base" + ":" + "\n" + "    def __init__(self, "
         output_docstring = """"""
-        file_string = "/home/maciek/Documents/newprog/stapi/stapi-python/yaml/" + snake_case[i] + "/entity/" + camelCase[i] + "Base.yaml"
+        file_string = os.getcwd() + "/yaml/" + snake_case[i] + "/entity/" + camelCase[i] + "Base.yaml"
         try:
             loaded_yaml = yaml.load(open(file_string))
             ordered_properties = extract_ordered_properties(file_string)
@@ -143,7 +143,7 @@ def helper_klasy_base():
                             assignments +=  "        self." + prop + " = " + prop + "\n"
                 output_code += positional_arguments
                 output_code += named_arguments
-                output_code = output_code[:-2] + ")"
+                output_code = output_code[:-2] + "):"
                 output_docstring += "        \"\"\"\n"
                 
 
@@ -159,7 +159,7 @@ def helper_klasy_base():
 
         
 
-# helper_klasy_base()
+helper_klasy_base()
 
 def helper_klasy_full_response():
     full_response_file = open("full_response.py", "w")
@@ -262,7 +262,7 @@ def helper_full():
                             assignments +=  "        self." + prop + " = " + prop + "\n"
                 output_code += positional_arguments
                 output_code += named_arguments
-                output_code = output_code[:-2] + ")"
+                output_code = output_code[:-2] + "):"
                 output_docstring += "        \"\"\"\n"
                 
 
@@ -270,4 +270,4 @@ def helper_full():
                 full_file.write(output_docstring)
                 full_file.write(assignments)
     full_file.close()
-helper_full()
+# helper_full()

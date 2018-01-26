@@ -1,5 +1,5 @@
 class AnimalFull:
-    def __init__(self, uid, name, earthAnimal=None, earthInsect=None, avian=None, canine=None, feline=None)
+    def __init__(self, uid, name, earthAnimal=None, earthInsect=None, avian=None, canine=None, feline=None):
         """Full animal, returned when queried using UID
         Args:
             uid (string): Animal unique ID
@@ -18,7 +18,7 @@ class AnimalFull:
         self.canine = canine
         self.feline = feline
 class AstronomicalObjectFull:
-    def __init__(self, uid, name, astronomicalObjectType, location=None, astronomicalObjects=None)
+    def __init__(self, uid, name, astronomicalObjectType, location=None, astronomicalObjects=None):
         """Full astronomical object, returned when queried using UID
         Args:
             uid (string): Astronomical object's unique ID
@@ -33,7 +33,7 @@ class AstronomicalObjectFull:
         self.location = location
         self.astronomicalObjects = astronomicalObjects
 class BookFull:
-    def __init__(self, uid, title, novel, referenceBook, biographyBook, rolePlayingBook, eBook, anthology, novelization, audiobook, audiobookAbridged, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, audiobookPublishedYear=None, audiobookPublishedMonth=None, audiobookPublishedDay=None, audiobookRunTime=None, productionNumber=None, bookSeries=None, authors=None, artists=None, editors=None, audiobookNarrators=None, publishers=None, audiobookPublishers=None, characters=None, references=None, audiobookReferences=None, bookCollections=None)
+    def __init__(self, uid, title, novel, referenceBook, biographyBook, rolePlayingBook, eBook, anthology, novelization, audiobook, audiobookAbridged, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, audiobookPublishedYear=None, audiobookPublishedMonth=None, audiobookPublishedDay=None, audiobookRunTime=None, productionNumber=None, bookSeries=None, authors=None, artists=None, editors=None, audiobookNarrators=None, publishers=None, audiobookPublishers=None, characters=None, references=None, audiobookReferences=None, bookCollections=None):
         """Full book, returned when queried using UID
         Args:
             uid (string): Book unique ID
@@ -108,7 +108,7 @@ class BookFull:
         self.audiobookReferences = audiobookReferences
         self.bookCollections = bookCollections
 class BookCollectionFull:
-    def __init__(self, uid=None, title=None, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, bookSeries=None, authors=None, artists=None, editors=None, publishers=None, characters=None, references=None, books=None)
+    def __init__(self, uid=None, title=None, publishedYear=None, publishedMonth=None, publishedDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, bookSeries=None, authors=None, artists=None, editors=None, publishers=None, characters=None, references=None, books=None):
         """Full book collection, returned when queried using UID
         Args:
             uid (string): Book collection unique ID
@@ -149,7 +149,7 @@ class BookCollectionFull:
         self.references = references
         self.books = books
 class BookSeriesFull:
-    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfBooks=None, yearFrom=None, yearTo=None, miniseries=None, eBookSeries=None, parentSeries=None, childSeries=None, publishers=None, books=None)
+    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfBooks=None, yearFrom=None, yearTo=None, miniseries=None, eBookSeries=None, parentSeries=None, childSeries=None, publishers=None, books=None):
         """Full book series, returned when queried using UID
         Args:
             uid (string): Book series unique ID
@@ -184,7 +184,7 @@ class BookSeriesFull:
         self.publishers = publishers
         self.books = books
 class CharacterFull:
-    def __init__(self, uid, name, gender=None, yearOfBirth=None, monthOfBirth=None, dayOfBirth=None, placeOfBirth=None, yearOfDeath=None, monthOfDeath=None, dayOfDeath=None, placeOfDeath=None, height=None, weight=None, deceased=None, bloodType=None, maritalStatus=None, serialNumber=None, hologramActivationDate=None, hologramStatus=None, hologramDateStatus=None, hologram=None, fictionalCharacter=None, mirror=None, alternateReality=None, performers=None, episodes=None, movies=None, characterSpecies=None, characterRelations=None, titles=None, occupations=None, organizations=None)
+    def __init__(self, uid, name, gender=None, yearOfBirth=None, monthOfBirth=None, dayOfBirth=None, placeOfBirth=None, yearOfDeath=None, monthOfDeath=None, dayOfDeath=None, placeOfDeath=None, height=None, weight=None, deceased=None, bloodType=None, maritalStatus=None, serialNumber=None, hologramActivationDate=None, hologramStatus=None, hologramDateStatus=None, hologram=None, fictionalCharacter=None, mirror=None, alternateReality=None, performers=None, episodes=None, movies=None, characterSpecies=None, characterRelations=None, titles=None, occupations=None, organizations=None):
         """Full character, returned when queried using UID
         Args:
             uid (string): Character unique ID
@@ -253,7 +253,7 @@ class CharacterFull:
         self.occupations = occupations
         self.organizations = organizations
 class ComicCollectionFull:
-    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None, comicSeries=None, writers=None, artists=None, editors=None, staff=None, publishers=None, characters=None, references=None, comics=None)
+    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None, comicSeries=None, writers=None, artists=None, editors=None, staff=None, publishers=None, characters=None, references=None, comics=None):
         """Full comic collection, returned when queried using UID
         Args:
             uid (string): Comic collection unique ID
@@ -304,7 +304,7 @@ class ComicCollectionFull:
         self.references = references
         self.comics = comics
 class ComicSeriesFull:
-    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfIssues=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, miniseries=None, photonovelSeries=None, parentSeries=None, childSeries=None, publishers=None, comics=None)
+    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfIssues=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, miniseries=None, photonovelSeries=None, parentSeries=None, childSeries=None, publishers=None, comics=None):
         """Full comic series, returned when queried using UID
         Args:
             uid (string): Comic series unique ID
@@ -347,7 +347,7 @@ class ComicSeriesFull:
         self.publishers = publishers
         self.comics = comics
 class ComicStripFull:
-    def __init__(self, uid, title, periodical=None, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfPages=None, yearFrom=None, yearTo=None, comicSeries=None, writers=None, artists=None, characters=None)
+    def __init__(self, uid, title, periodical=None, publishedYearFrom=None, publishedMonthFrom=None, publishedDayFrom=None, publishedYearTo=None, publishedMonthTo=None, publishedDayTo=None, numberOfPages=None, yearFrom=None, yearTo=None, comicSeries=None, writers=None, artists=None, characters=None):
         """Full comic strip, returned when queried using UID
         Args:
             uid (string): Comic strip unique ID
@@ -384,7 +384,7 @@ class ComicStripFull:
         self.artists = artists
         self.characters = characters
 class ComicsFull:
-    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None, adaptation=None, comicSeries=None, writers=None, artists=None, editors=None, staff=None, publishers=None, characters=None, references=None, comicCollections=None)
+    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, photonovel=None, adaptation=None, comicSeries=None, writers=None, artists=None, editors=None, staff=None, publishers=None, characters=None, references=None, comicCollections=None):
         """Full comics, returned when queried using UID
         Args:
             uid (string): Comics unique ID
@@ -437,7 +437,7 @@ class ComicsFull:
         self.references = references
         self.comicCollections = comicCollections
 class CompanyFull:
-    def __init__(self, uid, name, broadcaster=None, collectibleCompany=None, conglomerate=None, digitalVisualEffectsCompany=None, distributor=None, gameCompany=None, filmEquipmentCompany=None, makeUpEffectsStudio=None, mattePaintingCompany=None, modelAndMiniatureEffectsCompany=None, postProductionCompany=None, productionCompany=None, propCompany=None, recordLabel=None, specialEffectsCompany=None, tvAndFilmProductionCompany=None, videoGameCompany=None)
+    def __init__(self, uid, name, broadcaster=None, collectibleCompany=None, conglomerate=None, digitalVisualEffectsCompany=None, distributor=None, gameCompany=None, filmEquipmentCompany=None, makeUpEffectsStudio=None, mattePaintingCompany=None, modelAndMiniatureEffectsCompany=None, postProductionCompany=None, productionCompany=None, propCompany=None, recordLabel=None, specialEffectsCompany=None, tvAndFilmProductionCompany=None, videoGameCompany=None):
         """Full company, returned when queried using UID
         Args:
             uid (string): Company unique ID
@@ -480,7 +480,7 @@ class CompanyFull:
         self.tvAndFilmProductionCompany = tvAndFilmProductionCompany
         self.videoGameCompany = videoGameCompany
 class ConflictFull:
-    def __init__(self, uid, name, yearFrom=None, yearTo=None, earthConflict=None, federationWar=None, klingonWar=None, dominionWarBattle=None, alternateReality=None, locations=None, firstSideBelligerents=None, firstSideCommanders=None, secondSideBelligerents=None, secondSideCommanders=None)
+    def __init__(self, uid, name, yearFrom=None, yearTo=None, earthConflict=None, federationWar=None, klingonWar=None, dominionWarBattle=None, alternateReality=None, locations=None, firstSideBelligerents=None, firstSideCommanders=None, secondSideBelligerents=None, secondSideCommanders=None):
         """Base conflict, returned in search results
         Args:
             uid (string): Conflict unique ID
@@ -513,7 +513,7 @@ class ConflictFull:
         self.secondSideBelligerents = secondSideBelligerents
         self.secondSideCommanders = secondSideCommanders
 class ElementFull:
-    def __init__(self, uid, name, symbol=None, atomicNumber=None, atomicWeight=None, transuranium=None, gammaSeries=None, hypersonicSeries=None, megaSeries=None, omegaSeries=None, transonicSeries=None, worldSeries=None)
+    def __init__(self, uid, name, symbol=None, atomicNumber=None, atomicWeight=None, transuranium=None, gammaSeries=None, hypersonicSeries=None, megaSeries=None, omegaSeries=None, transonicSeries=None, worldSeries=None):
         """Full element, returned when queried using UID
         Args:
             uid (string): Element unique ID
@@ -542,7 +542,7 @@ class ElementFull:
         self.transonicSeries = transonicSeries
         self.worldSeries = worldSeries
 class EpisodeFull:
-    def __init__(self, uid, title, titleGerman=None, titleItalian=None, titleJapanese=None, series=None, season=None, seasonNumber=None, episodeNumber=None, productionSerialNumber=None, featureLength=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usAirDate=None, finalScriptDate=None, writers=None, teleplayAuthors=None, storyAuthors=None, directors=None, performers=None, stuntPerformers=None, standInPerformers=None, characters=None)
+    def __init__(self, uid, title, titleGerman=None, titleItalian=None, titleJapanese=None, series=None, season=None, seasonNumber=None, episodeNumber=None, productionSerialNumber=None, featureLength=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usAirDate=None, finalScriptDate=None, writers=None, teleplayAuthors=None, storyAuthors=None, directors=None, performers=None, stuntPerformers=None, standInPerformers=None, characters=None):
         """Full episode, returned when queried using UID
         Args:
             uid (string): Episode unique ID
@@ -597,7 +597,7 @@ class EpisodeFull:
         self.standInPerformers = standInPerformers
         self.characters = characters
 class FoodFull:
-    def __init__(self, uid, name, earthlyOrigin=None, dessert=None, fruit=None, herbOrSpice=None, sauce=None, soup=None, beverage=None, alcoholicBeverage=None, juice=None, tea=None)
+    def __init__(self, uid, name, earthlyOrigin=None, dessert=None, fruit=None, herbOrSpice=None, sauce=None, soup=None, beverage=None, alcoholicBeverage=None, juice=None, tea=None):
         """Full food, returned when queried using UID
         Args:
             uid (string): Food unique ID
@@ -626,7 +626,7 @@ class FoodFull:
         self.juice = juice
         self.tea = tea
 class LiteratureFull:
-    def __init__(self, uid, title, earthlyOrigin=None, shakespeareanWork=None, report=None, scientificLiterature=None, technicalManual=None, religiousLiterature=None)
+    def __init__(self, uid, title, earthlyOrigin=None, shakespeareanWork=None, report=None, scientificLiterature=None, technicalManual=None, religiousLiterature=None):
         """Full literature, returned when queried using UID
         Args:
             uid (string): Literature unique ID
@@ -647,7 +647,7 @@ class LiteratureFull:
         self.technicalManual = technicalManual
         self.religiousLiterature = religiousLiterature
 class LocationFull:
-    def __init__(self, uid, name, earthlyLocation=None, fictionalLocation=None, religiousLocation=None, geographicalLocation=None, bodyOfWater=None, country=None, subnationalEntity=None, settlement=None, usSettlement=None, bajoranSettlement=None, colony=None, landform=None, landmark=None, road=None, structure=None, shipyard=None, buildingInterior=None, establishment=None, medicalEstablishment=None, ds9Establishment=None, school=None, mirror=None, alternateReality=None)
+    def __init__(self, uid, name, earthlyLocation=None, fictionalLocation=None, religiousLocation=None, geographicalLocation=None, bodyOfWater=None, country=None, subnationalEntity=None, settlement=None, usSettlement=None, bajoranSettlement=None, colony=None, landform=None, landmark=None, road=None, structure=None, shipyard=None, buildingInterior=None, establishment=None, medicalEstablishment=None, ds9Establishment=None, school=None, mirror=None, alternateReality=None):
         """Full location, returned when queried using UID
         Args:
             uid (string): Location unique ID
@@ -702,7 +702,7 @@ class LocationFull:
         self.mirror = mirror
         self.alternateReality = alternateReality
 class MagazineFull:
-    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, issueNumber=None, magazineSeries=None, editors=None, publishers=None)
+    def __init__(self, uid, title, publishedYear=None, publishedMonth=None, publishedDay=None, coverYear=None, coverMonth=None, coverDay=None, numberOfPages=None, issueNumber=None, magazineSeries=None, editors=None, publishers=None):
         """Full magazine, returned when queried using UID
         Args:
             uid (string): Magazine unique ID
@@ -733,7 +733,7 @@ class MagazineFull:
         self.editors = editors
         self.publishers = publishers
 class MagazineSeriesFull:
-    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfIssues=None, publishers=None, editors=None, magazines=None)
+    def __init__(self, uid, title, publishedYearFrom=None, publishedMonthFrom=None, publishedYearTo=None, publishedMonthTo=None, numberOfIssues=None, publishers=None, editors=None, magazines=None):
         """Full magazine series, returned when queried using UID
         Args:
             uid (string): Magazine series unique ID
@@ -758,7 +758,7 @@ class MagazineSeriesFull:
         self.editors = editors
         self.magazines = magazines
 class MaterialFull:
-    def __init__(self, uid, name, chemicalCompound=None, biochemicalCompound=None, drug=None, poisonousSubstance=None, explosive=None, gemstone=None, alloyOrComposite=None, fuel=None, mineral=None, preciousMaterial=None)
+    def __init__(self, uid, name, chemicalCompound=None, biochemicalCompound=None, drug=None, poisonousSubstance=None, explosive=None, gemstone=None, alloyOrComposite=None, fuel=None, mineral=None, preciousMaterial=None):
         """Full material, returned when queried using UID
         Args:
             uid (string): Material unique ID
@@ -787,7 +787,7 @@ class MaterialFull:
         self.mineral = mineral
         self.preciousMaterial = preciousMaterial
 class MedicalConditionFull:
-    def __init__(self, uid, name, psychologicalCondition=None)
+    def __init__(self, uid, name, psychologicalCondition=None):
         """Full medical condition, returned when queried using UID
         Args:
             uid (string): Medical condition unique ID
@@ -798,7 +798,7 @@ class MedicalConditionFull:
         self.name = name
         self.psychologicalCondition = psychologicalCondition
 class MovieFull:
-    def __init__(self, uid, title, mainDirector=None, titleBulgarian=None, titleCatalan=None, titleChineseTraditional=None, titleGerman=None, titleItalian=None, titleJapanese=None, titlePolish=None, titleRussian=None, titleSerbian=None, titleSpanish=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usReleaseDate=None, writers=None, screenplayAuthors=None, storyAuthors=None, directors=None, producers=None, staff=None, performers=None, stuntPerformers=None, standInPerformers=None, characters=None)
+    def __init__(self, uid, title, mainDirector=None, titleBulgarian=None, titleCatalan=None, titleChineseTraditional=None, titleGerman=None, titleItalian=None, titleJapanese=None, titlePolish=None, titleRussian=None, titleSerbian=None, titleSpanish=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, usReleaseDate=None, writers=None, screenplayAuthors=None, storyAuthors=None, directors=None, producers=None, staff=None, performers=None, stuntPerformers=None, standInPerformers=None, characters=None):
         """Full movie, returned when queried using UID
         Args:
             uid (string): Movie unique ID
@@ -859,7 +859,7 @@ class MovieFull:
         self.standInPerformers = standInPerformers
         self.characters = characters
 class OccupationFull:
-    def __init__(self, uid, name, legalOccupation=None, medicalOccupation=None, scientificOccupation=None, characters=None)
+    def __init__(self, uid, name, legalOccupation=None, medicalOccupation=None, scientificOccupation=None, characters=None):
         """Full occupation, returned when queried using UID
         Args:
             uid (string): Occupation unique ID
@@ -876,7 +876,7 @@ class OccupationFull:
         self.scientificOccupation = scientificOccupation
         self.characters = characters
 class OrganizationFull:
-    def __init__(self, uid, name, government=None, intergovernmentalOrganization=None, researchOrganization=None, sportOrganization=None, medicalOrganization=None, militaryOrganization=None, militaryUnit=None, governmentAgency=None, lawEnforcementAgency=None, prisonOrPenalColony=None, mirror=None, alternateReality=None, characters=None)
+    def __init__(self, uid, name, government=None, intergovernmentalOrganization=None, researchOrganization=None, sportOrganization=None, medicalOrganization=None, militaryOrganization=None, militaryUnit=None, governmentAgency=None, lawEnforcementAgency=None, prisonOrPenalColony=None, mirror=None, alternateReality=None, characters=None):
         """Full organization, returned when queried using UID
         Args:
             uid (string): Organization unique ID
@@ -911,7 +911,7 @@ class OrganizationFull:
         self.alternateReality = alternateReality
         self.characters = characters
 class PerformerFull:
-    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, animalPerformer=None, disPerformer=None, ds9Performer=None, entPerformer=None, filmPerformer=None, standInPerformer=None, stuntPerformer=None, tasPerformer=None, tngPerformer=None, tosPerformer=None, videoGamePerformer=None, voicePerformer=None, voyPerformer=None, episodesPerformances=None, episodesStuntPerformances=None, episodesStandInPerformances=None, moviesPerformances=None, moviesStuntPerformances=None, moviesStandInPerformances=None, characters=None)
+    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, animalPerformer=None, disPerformer=None, ds9Performer=None, entPerformer=None, filmPerformer=None, standInPerformer=None, stuntPerformer=None, tasPerformer=None, tngPerformer=None, tosPerformer=None, videoGamePerformer=None, voicePerformer=None, voyPerformer=None, episodesPerformances=None, episodesStuntPerformances=None, episodesStandInPerformances=None, moviesPerformances=None, moviesStuntPerformances=None, moviesStandInPerformances=None, characters=None):
         """Full performer, returned when queried using UID
         Args:
             uid (string): Performer unique ID
@@ -972,7 +972,7 @@ class PerformerFull:
         self.moviesStandInPerformances = moviesStandInPerformances
         self.characters = characters
 class SeasonFull:
-    def __init__(self, uid, title, series=None, seasonNumber=None, numberOfEpisodes=None, episodes=None)
+    def __init__(self, uid, title, series=None, seasonNumber=None, numberOfEpisodes=None, episodes=None):
         """Full location, returned when queried using UID
         Args:
             uid (string): Season unique ID
@@ -989,7 +989,7 @@ class SeasonFull:
         self.numberOfEpisodes = numberOfEpisodes
         self.episodes = episodes
 class SeriesFull:
-    def __init__(self, uid, title, abbreviation, productionStartYear=None, productionEndYear=None, originalRunStartDate=None, originalRunEndDate=None, seasonsCount=None, episodesCount=None, featureLengthEpisodesCount=None, productionCompany=None, originalBroadcaster=None, episodes=None, seasons=None)
+    def __init__(self, uid, title, abbreviation, productionStartYear=None, productionEndYear=None, originalRunStartDate=None, originalRunEndDate=None, seasonsCount=None, episodesCount=None, featureLengthEpisodesCount=None, productionCompany=None, originalBroadcaster=None, episodes=None, seasons=None):
         """Full series, returned when queried using UID
         Args:
             uid (string): Series unique ID
@@ -1022,7 +1022,7 @@ class SeriesFull:
         self.episodes = episodes
         self.seasons = seasons
 class SoundtrackFull:
-    def __init__(self, uid, title, releaseDate=None, length=None, labels=None, composers=None, contributors=None, orchestrators=None, references=None)
+    def __init__(self, uid, title, releaseDate=None, length=None, labels=None, composers=None, contributors=None, orchestrators=None, references=None):
         """Full soundtrack, returned when queried using UID
         Args:
             uid (string): Soundtrack unique ID
@@ -1045,7 +1045,7 @@ class SoundtrackFull:
         self.orchestrators = orchestrators
         self.references = references
 class SpacecraftFull:
-    def __init__(self, uid, name, registry=None, status=None, dateStatus=None, spacecraftClass=None, owner=None, operator=None, spacecraftTypes=None)
+    def __init__(self, uid, name, registry=None, status=None, dateStatus=None, spacecraftClass=None, owner=None, operator=None, spacecraftTypes=None):
         """Full spacecraft, returned when queried using UID
         Args:
             uid (string): Spacecraft unique ID
@@ -1068,7 +1068,7 @@ class SpacecraftFull:
         self.operator = operator
         self.spacecraftTypes = spacecraftTypes
 class SpacecraftClassFull:
-    def __init__(self, uid, name, numberOfDecks=None, warpCapable=None, alternateReality=None, activeFrom=None, activeTo=None, species=None, owner=None, operator=None, affiliation=None, spacecraftTypes=None, spacecrafts=None)
+    def __init__(self, uid, name, numberOfDecks=None, warpCapable=None, alternateReality=None, activeFrom=None, activeTo=None, species=None, owner=None, operator=None, affiliation=None, spacecraftTypes=None, spacecrafts=None):
         """Full spacecraft class, returned when queried using UID
         Args:
             uid (string): Spacecraft class unique ID
@@ -1099,7 +1099,7 @@ class SpacecraftClassFull:
         self.spacecraftTypes = spacecraftTypes
         self.spacecrafts = spacecrafts
 class SpeciesFull:
-    def __init__(self, uid, name, homeworld=None, quadrant=None, extinctSpecies=None, warpCapableSpecies=None, extraGalacticSpecies=None, humanoidSpecies=None, reptilianSpecies=None, nonCorporealSpecies=None, shapeshiftingSpecies=None, spaceborneSpecies=None, telepathicSpecies=None, transDimensionalSpecies=None, unnamedSpecies=None, alternateReality=None, characters=None)
+    def __init__(self, uid, name, homeworld=None, quadrant=None, extinctSpecies=None, warpCapableSpecies=None, extraGalacticSpecies=None, humanoidSpecies=None, reptilianSpecies=None, nonCorporealSpecies=None, shapeshiftingSpecies=None, spaceborneSpecies=None, telepathicSpecies=None, transDimensionalSpecies=None, unnamedSpecies=None, alternateReality=None, characters=None):
         """Full species, returned when queried using UID
         Args:
             uid (string): Species unique ID
@@ -1138,7 +1138,7 @@ class SpeciesFull:
         self.alternateReality = alternateReality
         self.characters = characters
 class StaffFull:
-    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, artDepartment=None, artDirector=None, productionDesigner=None, cameraAndElectricalDepartment=None, cinematographer=None, castingDepartment=None, costumeDepartment=None, costumeDesigner=None, director=None, assistantOrSecondUnitDirector=None, exhibitAndAttractionStaff=None, filmEditor=None, linguist=None, locationStaff=None, makeupStaff=None, musicDepartment=None, composer=None, personalAssistant=None, producer=None, productionAssociate=None, productionStaff=None, publicationStaff=None, scienceConsultant=None, soundDepartment=None, specialAndVisualEffectsStaff=None, author=None, audioAuthor=None, calendarArtist=None, comicArtist=None, comicAuthor=None, comicColorArtist=None, comicInteriorArtist=None, comicInkArtist=None, comicPencilArtist=None, comicLetterArtist=None, comicStripArtist=None, gameArtist=None, gameAuthor=None, novelArtist=None, novelAuthor=None, referenceArtist=None, referenceAuthor=None, publicationArtist=None, publicationDesigner=None, publicationEditor=None, publicityArtist=None, cbsDigitalStaff=None, ilmProductionStaff=None, specialFeaturesStaff=None, storyEditor=None, studioExecutive=None, stuntDepartment=None, transportationDepartment=None, videoGameProductionStaff=None, writer=None, writtenEpisodes=None, teleplayAuthoredEpisodes=None, storyAuthoredEpisodes=None, directedEpisodes=None, episodes=None, writtenMovies=None, screenplayAuthoredMovies=None, storyAuthoredMovies=None, directedMovies=None, producedMovies=None, movies=None)
+    def __init__(self, uid, name, birthName=None, gender=None, dateOfBirth=None, placeOfBirth=None, dateOfDeath=None, placeOfDeath=None, artDepartment=None, artDirector=None, productionDesigner=None, cameraAndElectricalDepartment=None, cinematographer=None, castingDepartment=None, costumeDepartment=None, costumeDesigner=None, director=None, assistantOrSecondUnitDirector=None, exhibitAndAttractionStaff=None, filmEditor=None, linguist=None, locationStaff=None, makeupStaff=None, musicDepartment=None, composer=None, personalAssistant=None, producer=None, productionAssociate=None, productionStaff=None, publicationStaff=None, scienceConsultant=None, soundDepartment=None, specialAndVisualEffectsStaff=None, author=None, audioAuthor=None, calendarArtist=None, comicArtist=None, comicAuthor=None, comicColorArtist=None, comicInteriorArtist=None, comicInkArtist=None, comicPencilArtist=None, comicLetterArtist=None, comicStripArtist=None, gameArtist=None, gameAuthor=None, novelArtist=None, novelAuthor=None, referenceArtist=None, referenceAuthor=None, publicationArtist=None, publicationDesigner=None, publicationEditor=None, publicityArtist=None, cbsDigitalStaff=None, ilmProductionStaff=None, specialFeaturesStaff=None, storyEditor=None, studioExecutive=None, stuntDepartment=None, transportationDepartment=None, videoGameProductionStaff=None, writer=None, writtenEpisodes=None, teleplayAuthoredEpisodes=None, storyAuthoredEpisodes=None, directedEpisodes=None, episodes=None, writtenMovies=None, screenplayAuthoredMovies=None, storyAuthoredMovies=None, directedMovies=None, producedMovies=None, movies=None):
         """Full staff, returned when queried using UID
         Args:
             uid (string): Staff unique ID
@@ -1291,7 +1291,7 @@ class StaffFull:
         self.producedMovies = producedMovies
         self.movies = movies
 class TechnologyFull:
-    def __init__(self, uid, name, borgTechnology=None, borgComponent=None, communicationsTechnology=None, computerTechnology=None, computerProgramming=None, subroutine=None, database=None, energyTechnology=None, fictionalTechnology=None, holographicTechnology=None, identificationTechnology=None, lifeSupportTechnology=None, sensorTechnology=None, shieldTechnology=None, tool=None, culinaryTool=None, engineeringTool=None, householdTool=None, medicalEquipment=None, transporterTechnology=None)
+    def __init__(self, uid, name, borgTechnology=None, borgComponent=None, communicationsTechnology=None, computerTechnology=None, computerProgramming=None, subroutine=None, database=None, energyTechnology=None, fictionalTechnology=None, holographicTechnology=None, identificationTechnology=None, lifeSupportTechnology=None, sensorTechnology=None, shieldTechnology=None, tool=None, culinaryTool=None, engineeringTool=None, householdTool=None, medicalEquipment=None, transporterTechnology=None):
         """Full technology, returned when queried using UID
         Args:
             uid (string): Technology unique ID
@@ -1340,7 +1340,7 @@ class TechnologyFull:
         self.medicalEquipment = medicalEquipment
         self.transporterTechnology = transporterTechnology
 class TitleFull:
-    def __init__(self, uid, name, militaryRank=None, fleetRank=None, religiousTitle=None, position=None, mirror=None, characters=None)
+    def __init__(self, uid, name, militaryRank=None, fleetRank=None, religiousTitle=None, position=None, mirror=None, characters=None):
         """Full title, returned when queried using UID
         Args:
             uid (string): Title unique ID
@@ -1361,7 +1361,7 @@ class TitleFull:
         self.mirror = mirror
         self.characters = characters
 class TradingCardFull:
-    def __init__(self, uid, name, tradingCardSet=None, tradingCardDeck=None, number=None, releaseYear=None, productionRun=None)
+    def __init__(self, uid, name, tradingCardSet=None, tradingCardDeck=None, number=None, releaseYear=None, productionRun=None):
         """Full trading card, returned when queried using UID
         Args:
             uid (string): Trading card unique ID
@@ -1380,7 +1380,7 @@ class TradingCardFull:
         self.releaseYear = releaseYear
         self.productionRun = productionRun
 class TradingCardDeckFull:
-    def __init__(self, uid, name, frequency=None, tradingCardSet=None, tradingCards=None)
+    def __init__(self, uid, name, frequency=None, tradingCardSet=None, tradingCards=None):
         """Full trading card deck, returned when queried using UID
         Args:
             uid (string): Trading card deck unique ID
@@ -1395,7 +1395,7 @@ class TradingCardDeckFull:
         self.tradingCardSet = tradingCardSet
         self.tradingCards = tradingCards
 class TradingCardSetFull:
-    def __init__(self, uid, name, releaseYear=None, releaseMonth=None, releaseDay=None, cardsPerPack=None, packsPerBox=None, boxesPerCase=None, productionRun=None, productionRunUnit=None, cardWidth=None, cardHeight=None, manufacturers=None, tradingCardDecks=None, tradingCards=None, countriesOfOrigin=None)
+    def __init__(self, uid, name, releaseYear=None, releaseMonth=None, releaseDay=None, cardsPerPack=None, packsPerBox=None, boxesPerCase=None, productionRun=None, productionRunUnit=None, cardWidth=None, cardHeight=None, manufacturers=None, tradingCardDecks=None, tradingCards=None, countriesOfOrigin=None):
         """Full trading card set, returned when queried using UID
         Args:
             uid (string): Trading card set unique ID
@@ -1432,7 +1432,7 @@ class TradingCardSetFull:
         self.tradingCards = tradingCards
         self.countriesOfOrigin = countriesOfOrigin
 class VideoGameFull:
-    def __init__(self, uid, title, releaseDate=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, systemRequirements=None, publishers=None, developers=None, platforms=None, genres=None, ratings=None, references=None)
+    def __init__(self, uid, title, releaseDate=None, stardateFrom=None, stardateTo=None, yearFrom=None, yearTo=None, systemRequirements=None, publishers=None, developers=None, platforms=None, genres=None, ratings=None, references=None):
         """Full video game, returned when queried using UID
         Args:
             uid (string): Video game unique ID
@@ -1465,7 +1465,7 @@ class VideoGameFull:
         self.ratings = ratings
         self.references = references
 class VideoReleaseFull:
-    def __init__(self, uid, title, series=None, season=None, format=None, numberOfEpisodes=None, numberOfFeatureLengthEpisodes=None, numberOfDataCarriers=None, runTime=None, yearFrom=None, yearTo=None, regionFreeReleaseDate=None, region1AReleaseDate=None, region1SlimlineReleaseDate=None, region2BReleaseDate=None, region2SlimlineReleaseDate=None, region4AReleaseDate=None, region4SlimlineReleaseDate=None, amazonDigitalRelease=None, dailymotionDigitalRelease=None, googlePlayDigitalRelease=None, iTunesDigitalRelease=None, ultraVioletDigitalRelease=None, vimeoDigitalRelease=None, vuduDigitalRelease=None, xboxSmartGlassDigitalRelease=None, youTubeDigitalRelease=None, netflixDigitalRelease=None, references=None, ratings=None, languages=None, languagesSubtitles=None, languagesDubbed=None)
+    def __init__(self, uid, title, series=None, season=None, format=None, numberOfEpisodes=None, numberOfFeatureLengthEpisodes=None, numberOfDataCarriers=None, runTime=None, yearFrom=None, yearTo=None, regionFreeReleaseDate=None, region1AReleaseDate=None, region1SlimlineReleaseDate=None, region2BReleaseDate=None, region2SlimlineReleaseDate=None, region4AReleaseDate=None, region4SlimlineReleaseDate=None, amazonDigitalRelease=None, dailymotionDigitalRelease=None, googlePlayDigitalRelease=None, iTunesDigitalRelease=None, ultraVioletDigitalRelease=None, vimeoDigitalRelease=None, vuduDigitalRelease=None, xboxSmartGlassDigitalRelease=None, youTubeDigitalRelease=None, netflixDigitalRelease=None, references=None, ratings=None, languages=None, languagesSubtitles=None, languagesDubbed=None):
         """Full video release, returned when queried using UID
         Args:
             uid (string): Video release unique ID
@@ -1536,7 +1536,7 @@ class VideoReleaseFull:
         self.languagesSubtitles = languagesSubtitles
         self.languagesDubbed = languagesDubbed
 class WeaponFull:
-    def __init__(self, uid, name, handHeldWeapon=None, laserTechnology=None, plasmaTechnology=None, photonicTechnology=None, phaserTechnology=None, mirror=None, alternateReality=None)
+    def __init__(self, uid, name, handHeldWeapon=None, laserTechnology=None, plasmaTechnology=None, photonicTechnology=None, phaserTechnology=None, mirror=None, alternateReality=None):
         """Full weapon, returned when queried using UID
         Args:
             uid (string): Weapon unique ID
