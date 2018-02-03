@@ -1,9 +1,24 @@
+
+from .full import *
+from .base import *
+from .full_response import *
+from .base_response import *
+from urllib.request import urlopen as urlopen
+from json import loads
+
 class Animal:
         def __init__(self, url, apiKey):
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return AnimalFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/animal?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["animal"]
+            return AnimalFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -12,7 +27,14 @@ class AstronomicalObject:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return AstronomicalObjectFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/astronomicalObject?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["astronomicalObject"]
+            return AstronomicalObjectFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -21,7 +43,14 @@ class Book:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return BookFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/book?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["book"]
+            return BookFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -30,7 +59,14 @@ class BookCollection:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return BookCollectionFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/bookCollection?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["bookCollection"]
+            return BookCollectionFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -39,7 +75,14 @@ class BookSeries:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return BookSeriesFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/bookSeries?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["bookSeries"]
+            return BookSeriesFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -48,7 +91,14 @@ class Character:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return CharacterFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/character?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["character"]
+            return CharacterFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -57,7 +107,14 @@ class ComicCollection:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return ComicCollectionFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/comicCollection?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["comicCollection"]
+            return ComicCollectionFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -66,7 +123,14 @@ class ComicSeries:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return ComicSeriesFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/comicSeries?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["comicSeries"]
+            return ComicSeriesFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -75,7 +139,14 @@ class ComicStrip:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return ComicStripFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/comicStrip?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["comicStrip"]
+            return ComicStripFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -84,7 +155,14 @@ class Comics:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return ComicsFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/comics?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["comics"]
+            return ComicsFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -93,7 +171,14 @@ class Company:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return CompanyFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/company?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["company"]
+            return CompanyFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -102,7 +187,14 @@ class Conflict:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return ConflictFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/conflict?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["conflict"]
+            return ConflictFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -111,7 +203,14 @@ class Element:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return ElementFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/element?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["element"]
+            return ElementFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -120,7 +219,14 @@ class Episode:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return EpisodeFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/episode?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["episode"]
+            return EpisodeFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -129,7 +235,14 @@ class Food:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return FoodFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/food?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["food"]
+            return FoodFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -138,7 +251,14 @@ class Literature:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return LiteratureFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/literature?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["literature"]
+            return LiteratureFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -147,7 +267,14 @@ class Location:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return LocationFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/location?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["location"]
+            return LocationFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -156,7 +283,14 @@ class Magazine:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return MagazineFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/magazine?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["magazine"]
+            return MagazineFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -165,7 +299,14 @@ class MagazineSeries:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return MagazineSeriesFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/magazineSeries?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["magazineSeries"]
+            return MagazineSeriesFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -174,7 +315,14 @@ class Material:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return MaterialFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/material?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["material"]
+            return MaterialFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -183,7 +331,14 @@ class MedicalCondition:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return MedicalConditionFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/medicalCondition?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["medicalCondition"]
+            return MedicalConditionFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -192,7 +347,14 @@ class Movie:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return MovieFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/movie?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["movie"]
+            return MovieFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -201,7 +363,14 @@ class Occupation:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return OccupationFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/occupation?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["occupation"]
+            return OccupationFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -210,7 +379,14 @@ class Organization:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return OrganizationFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/organization?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["organization"]
+            return OrganizationFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -219,7 +395,14 @@ class Performer:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return PerformerFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/performer?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["performer"]
+            return PerformerFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -228,7 +411,14 @@ class Season:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return SeasonFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/season?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["season"]
+            return SeasonFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -237,7 +427,14 @@ class Series:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return SeriesFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/series?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["series"]
+            return SeriesFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -246,7 +443,14 @@ class Soundtrack:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return SoundtrackFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/soundtrack?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["soundtrack"]
+            return SoundtrackFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -255,7 +459,14 @@ class Spacecraft:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return SpacecraftFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/spacecraft?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["spacecraft"]
+            return SpacecraftFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -264,7 +475,14 @@ class SpacecraftClass:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return SpacecraftClassFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/spacecraftClass?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["spacecraftClass"]
+            return SpacecraftClassFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -273,7 +491,14 @@ class Species:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return SpeciesFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/species?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["species"]
+            return SpeciesFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -282,7 +507,14 @@ class Staff:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return StaffFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/staff?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["staff"]
+            return StaffFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -291,7 +523,14 @@ class Technology:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return TechnologyFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/technology?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["technology"]
+            return TechnologyFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -300,7 +539,14 @@ class Title:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return TitleFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/title?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["title"]
+            return TitleFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -309,7 +555,14 @@ class TradingCard:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return TradingCardFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/tradingCard?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["tradingCard"]
+            return TradingCardFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -318,7 +571,14 @@ class TradingCardDeck:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return TradingCardDeckFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/tradingCardDeck?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["tradingCardDeck"]
+            return TradingCardDeckFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -327,7 +587,14 @@ class TradingCardSet:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return TradingCardSetFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/tradingCardSet?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["tradingCardSet"]
+            return TradingCardSetFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -336,7 +603,14 @@ class VideoGame:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return VideoGameFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/videoGame?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["videoGame"]
+            return VideoGameFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -345,7 +619,14 @@ class VideoRelease:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return VideoReleaseFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/videoRelease?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["videoRelease"]
+            return VideoReleaseFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
@@ -354,7 +635,14 @@ class Weapon:
             self.url = url
             self.apiKey = apiKey
         def get(self, uid):
-            return WeaponFullResponse(uid)
+            url_to_open = self.url + "/api/v1/rest/weapon?uid=" + uid
+            fetched_data = urlopen(url_to_open)
+            decoded_data = fetched_data.readlines()[0].decode("utf-8")
+            parsed_data = loads(decoded_data)
+            print(parsed_data)
+            args_mapping = parsed_data["weapon"]
+            return WeaponFull(**args_mapping)
+            
         def search(self, searchCriteria):
             pass
             
