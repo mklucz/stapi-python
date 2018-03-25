@@ -159,6 +159,46 @@ def helper_klasy_full_response():
         full_response_file.write("\n\n")
 # helper_klasy_full_response()
 
+def extract_searchable_attributes():
+    # search_file = open("search.py", "w")
+    searchable_attributes = {}
+    for i in range(len(snake_case)):
+        if snake_case[i] == "organization":
+            searchable_attributes["organization"] = "name"
+            continue
+            # hardcoded as there seems to be an error in organizationSearch.path.yaml file
+        path_to_yaml_file = os.getcwd() + "/yaml/" + snake_case[i] + "/path/" + camelCase[i] + "Search.path.yaml"
+        if os.path.isfile(path_to_yaml_file):
+            search_file = open(path_to_yaml_file)
+            read_file = search_file.read()
+            string_to_find = """  parameters:
+    - name: pageNumber
+      in: query
+      type: integer
+      format: int32
+      description: Zero-based page number
+    - name: pageSize
+      in: query
+      type: integer
+      format: int32
+      description: Page size
+    - name: sort
+      type: string
+      in: query
+      description: "Sorting, serialized like this: fieldName,ASC;anotherFieldName,DESC"
+    - name: apiKey
+      in: query
+      type: string
+      description: API key
+"""
+            index_of_the_interesting_part = read_file.find(string_to_find) + len(string_to_find)
+            interesting_part = read_file[index_of_the_interesting_part:]
+            where_to_stop = interesting_part.find("\n")
+            # print(camelCase[i], interesting_part[:where_to_stop])
+            searchable_attributes[camelCase[i]] = "title" if "title" in interesting_part[:where_to_stop] else "name"
+    return searchable_attributes
+
+
 def helper_klasy_main():
     main_file = open("main.py", "w")
     main_file.write( 
@@ -171,6 +211,7 @@ from urllib.request import urlopen as urlopen
 from json import loads
 
 """)
+    searchable_attributes = extract_searchable_attributes()
     for i in range(len(lepsze_klasy)):
         try:
             get_file = open(os.getcwd() + "/yaml/" + snake_case[i] + "/path/" + camelCase[i] + ".path.yaml")
@@ -198,12 +239,11 @@ from json import loads
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data[\"""" + camelCase[i] + """\"]
             return """ + PascalCase[i] + """Full(**args_mapping)
             """ + """
         def search(self, searchCriteria):
-            pass
+            """ + searchable_attributes[camelCase[i]]  + """
             """)
         main_file.write("\n")
 
@@ -282,3 +322,4 @@ def helper_rest_client():
             print("self." + camelCase[i] + " = " + PascalCase[i] + "(url, apiKey)")
 
 # helper_rest_client()
+

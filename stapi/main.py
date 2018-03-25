@@ -15,12 +15,11 @@ class Animal:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["animal"]
             return AnimalFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class AstronomicalObject:
         def __init__(self, url, apiKey):
@@ -31,12 +30,11 @@ class AstronomicalObject:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["astronomicalObject"]
             return AstronomicalObjectFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Book:
         def __init__(self, url, apiKey):
@@ -47,12 +45,11 @@ class Book:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["book"]
             return BookFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class BookCollection:
         def __init__(self, url, apiKey):
@@ -63,12 +60,11 @@ class BookCollection:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["bookCollection"]
             return BookCollectionFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class BookSeries:
         def __init__(self, url, apiKey):
@@ -79,12 +75,11 @@ class BookSeries:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["bookSeries"]
             return BookSeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Character:
         def __init__(self, url, apiKey):
@@ -95,12 +90,11 @@ class Character:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["character"]
             return CharacterFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class ComicCollection:
         def __init__(self, url, apiKey):
@@ -111,12 +105,11 @@ class ComicCollection:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["comicCollection"]
             return ComicCollectionFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class ComicSeries:
         def __init__(self, url, apiKey):
@@ -127,12 +120,11 @@ class ComicSeries:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["comicSeries"]
             return ComicSeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class ComicStrip:
         def __init__(self, url, apiKey):
@@ -143,12 +135,11 @@ class ComicStrip:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["comicStrip"]
             return ComicStripFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Comics:
         def __init__(self, url, apiKey):
@@ -159,12 +150,11 @@ class Comics:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["comics"]
             return ComicsFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Company:
         def __init__(self, url, apiKey):
@@ -175,12 +165,11 @@ class Company:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["company"]
             return CompanyFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Conflict:
         def __init__(self, url, apiKey):
@@ -191,12 +180,11 @@ class Conflict:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["conflict"]
             return ConflictFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Element:
         def __init__(self, url, apiKey):
@@ -207,12 +195,11 @@ class Element:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["element"]
             return ElementFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Episode:
         def __init__(self, url, apiKey):
@@ -223,12 +210,11 @@ class Episode:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["episode"]
             return EpisodeFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Food:
         def __init__(self, url, apiKey):
@@ -239,12 +225,11 @@ class Food:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["food"]
             return FoodFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Literature:
         def __init__(self, url, apiKey):
@@ -255,12 +240,11 @@ class Literature:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["literature"]
             return LiteratureFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Location:
         def __init__(self, url, apiKey):
@@ -271,12 +255,11 @@ class Location:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["location"]
             return LocationFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Magazine:
         def __init__(self, url, apiKey):
@@ -287,12 +270,11 @@ class Magazine:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["magazine"]
             return MagazineFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class MagazineSeries:
         def __init__(self, url, apiKey):
@@ -303,12 +285,11 @@ class MagazineSeries:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["magazineSeries"]
             return MagazineSeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Material:
         def __init__(self, url, apiKey):
@@ -319,12 +300,11 @@ class Material:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["material"]
             return MaterialFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class MedicalCondition:
         def __init__(self, url, apiKey):
@@ -335,12 +315,11 @@ class MedicalCondition:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["medicalCondition"]
             return MedicalConditionFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Movie:
         def __init__(self, url, apiKey):
@@ -351,12 +330,11 @@ class Movie:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["movie"]
             return MovieFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Occupation:
         def __init__(self, url, apiKey):
@@ -367,12 +345,11 @@ class Occupation:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["occupation"]
             return OccupationFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Organization:
         def __init__(self, url, apiKey):
@@ -383,12 +360,11 @@ class Organization:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["organization"]
             return OrganizationFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Performer:
         def __init__(self, url, apiKey):
@@ -399,12 +375,11 @@ class Performer:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["performer"]
             return PerformerFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Season:
         def __init__(self, url, apiKey):
@@ -415,12 +390,11 @@ class Season:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["season"]
             return SeasonFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Series:
         def __init__(self, url, apiKey):
@@ -431,12 +405,11 @@ class Series:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["series"]
             return SeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Soundtrack:
         def __init__(self, url, apiKey):
@@ -447,12 +420,11 @@ class Soundtrack:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["soundtrack"]
             return SoundtrackFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Spacecraft:
         def __init__(self, url, apiKey):
@@ -463,12 +435,11 @@ class Spacecraft:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["spacecraft"]
             return SpacecraftFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class SpacecraftClass:
         def __init__(self, url, apiKey):
@@ -479,12 +450,11 @@ class SpacecraftClass:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["spacecraftClass"]
             return SpacecraftClassFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Species:
         def __init__(self, url, apiKey):
@@ -495,12 +465,11 @@ class Species:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["species"]
             return SpeciesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Staff:
         def __init__(self, url, apiKey):
@@ -511,12 +480,11 @@ class Staff:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["staff"]
             return StaffFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Technology:
         def __init__(self, url, apiKey):
@@ -527,12 +495,11 @@ class Technology:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["technology"]
             return TechnologyFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class Title:
         def __init__(self, url, apiKey):
@@ -543,12 +510,11 @@ class Title:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["title"]
             return TitleFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class TradingCard:
         def __init__(self, url, apiKey):
@@ -559,12 +525,11 @@ class TradingCard:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["tradingCard"]
             return TradingCardFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class TradingCardDeck:
         def __init__(self, url, apiKey):
@@ -575,12 +540,11 @@ class TradingCardDeck:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["tradingCardDeck"]
             return TradingCardDeckFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class TradingCardSet:
         def __init__(self, url, apiKey):
@@ -591,12 +555,11 @@ class TradingCardSet:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["tradingCardSet"]
             return TradingCardSetFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
 class VideoGame:
         def __init__(self, url, apiKey):
@@ -607,12 +570,11 @@ class VideoGame:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["videoGame"]
             return VideoGameFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class VideoRelease:
         def __init__(self, url, apiKey):
@@ -623,12 +585,11 @@ class VideoRelease:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["videoRelease"]
             return VideoReleaseFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            title
             
 class Weapon:
         def __init__(self, url, apiKey):
@@ -639,10 +600,9 @@ class Weapon:
             fetched_data = urlopen(url_to_open)
             decoded_data = fetched_data.readlines()[0].decode("utf-8")
             parsed_data = loads(decoded_data)
-            print(parsed_data)
             args_mapping = parsed_data["weapon"]
             return WeaponFull(**args_mapping)
             
         def search(self, searchCriteria):
-            pass
+            name
             
