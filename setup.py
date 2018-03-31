@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name="stapi",
-      version="0.1.1",
+      version="0.1.11",
       description="A Python client for accessing Star Trek API",
       url="https://github.com/mklucz/stapi-python",
       author="Maciej Kluczyński",

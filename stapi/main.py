@@ -3,8 +3,10 @@ from .full import *
 from .base import *
 from .full_response import *
 from .base_response import *
+from .search_criteria import *
 from urllib.request import urlopen as urlopen
 from json import loads
+import requests
 
 class Animal:
         def __init__(self, url, apiKey):
@@ -19,7 +21,12 @@ class Animal:
             return AnimalFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/animal/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class AstronomicalObject:
         def __init__(self, url, apiKey):
@@ -34,7 +41,12 @@ class AstronomicalObject:
             return AstronomicalObjectFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/astronomicalObject/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Book:
         def __init__(self, url, apiKey):
@@ -49,7 +61,12 @@ class Book:
             return BookFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/book/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class BookCollection:
         def __init__(self, url, apiKey):
@@ -64,7 +81,12 @@ class BookCollection:
             return BookCollectionFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/bookCollection/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class BookSeries:
         def __init__(self, url, apiKey):
@@ -79,7 +101,12 @@ class BookSeries:
             return BookSeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/bookSeries/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Character:
         def __init__(self, url, apiKey):
@@ -94,7 +121,12 @@ class Character:
             return CharacterFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/character/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class ComicCollection:
         def __init__(self, url, apiKey):
@@ -109,7 +141,12 @@ class ComicCollection:
             return ComicCollectionFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/comicCollection/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class ComicSeries:
         def __init__(self, url, apiKey):
@@ -124,7 +161,12 @@ class ComicSeries:
             return ComicSeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/comicSeries/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class ComicStrip:
         def __init__(self, url, apiKey):
@@ -139,7 +181,12 @@ class ComicStrip:
             return ComicStripFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/comicStrip/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Comics:
         def __init__(self, url, apiKey):
@@ -154,7 +201,12 @@ class Comics:
             return ComicsFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/comics/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Company:
         def __init__(self, url, apiKey):
@@ -169,7 +221,12 @@ class Company:
             return CompanyFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/company/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Conflict:
         def __init__(self, url, apiKey):
@@ -184,7 +241,12 @@ class Conflict:
             return ConflictFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/conflict/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Element:
         def __init__(self, url, apiKey):
@@ -199,7 +261,12 @@ class Element:
             return ElementFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/element/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Episode:
         def __init__(self, url, apiKey):
@@ -214,7 +281,12 @@ class Episode:
             return EpisodeFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/episode/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Food:
         def __init__(self, url, apiKey):
@@ -229,7 +301,12 @@ class Food:
             return FoodFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/food/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Literature:
         def __init__(self, url, apiKey):
@@ -244,7 +321,12 @@ class Literature:
             return LiteratureFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/literature/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Location:
         def __init__(self, url, apiKey):
@@ -259,7 +341,12 @@ class Location:
             return LocationFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/location/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Magazine:
         def __init__(self, url, apiKey):
@@ -274,7 +361,12 @@ class Magazine:
             return MagazineFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/magazine/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class MagazineSeries:
         def __init__(self, url, apiKey):
@@ -289,7 +381,12 @@ class MagazineSeries:
             return MagazineSeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/magazineSeries/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Material:
         def __init__(self, url, apiKey):
@@ -304,7 +401,12 @@ class Material:
             return MaterialFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/material/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class MedicalCondition:
         def __init__(self, url, apiKey):
@@ -319,7 +421,12 @@ class MedicalCondition:
             return MedicalConditionFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/medicalCondition/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Movie:
         def __init__(self, url, apiKey):
@@ -334,7 +441,12 @@ class Movie:
             return MovieFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/movie/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Occupation:
         def __init__(self, url, apiKey):
@@ -349,7 +461,12 @@ class Occupation:
             return OccupationFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/occupation/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Organization:
         def __init__(self, url, apiKey):
@@ -364,7 +481,12 @@ class Organization:
             return OrganizationFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/organization/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Performer:
         def __init__(self, url, apiKey):
@@ -379,7 +501,12 @@ class Performer:
             return PerformerFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/performer/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Season:
         def __init__(self, url, apiKey):
@@ -394,7 +521,12 @@ class Season:
             return SeasonFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/season/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Series:
         def __init__(self, url, apiKey):
@@ -409,7 +541,12 @@ class Series:
             return SeriesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/series/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Soundtrack:
         def __init__(self, url, apiKey):
@@ -424,7 +561,12 @@ class Soundtrack:
             return SoundtrackFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/soundtrack/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Spacecraft:
         def __init__(self, url, apiKey):
@@ -439,7 +581,12 @@ class Spacecraft:
             return SpacecraftFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/spacecraft/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class SpacecraftClass:
         def __init__(self, url, apiKey):
@@ -454,7 +601,12 @@ class SpacecraftClass:
             return SpacecraftClassFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/spacecraftClass/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Species:
         def __init__(self, url, apiKey):
@@ -469,7 +621,12 @@ class Species:
             return SpeciesFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/species/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Staff:
         def __init__(self, url, apiKey):
@@ -484,7 +641,12 @@ class Staff:
             return StaffFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/staff/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Technology:
         def __init__(self, url, apiKey):
@@ -499,7 +661,12 @@ class Technology:
             return TechnologyFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/technology/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Title:
         def __init__(self, url, apiKey):
@@ -514,7 +681,12 @@ class Title:
             return TitleFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/title/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class TradingCard:
         def __init__(self, url, apiKey):
@@ -529,7 +701,12 @@ class TradingCard:
             return TradingCardFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/tradingCard/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class TradingCardDeck:
         def __init__(self, url, apiKey):
@@ -544,7 +721,12 @@ class TradingCardDeck:
             return TradingCardDeckFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/tradingCardDeck/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class TradingCardSet:
         def __init__(self, url, apiKey):
@@ -559,7 +741,12 @@ class TradingCardSet:
             return TradingCardSetFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/tradingCardSet/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class VideoGame:
         def __init__(self, url, apiKey):
@@ -574,7 +761,12 @@ class VideoGame:
             return VideoGameFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/videoGame/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class VideoRelease:
         def __init__(self, url, apiKey):
@@ -589,7 +781,12 @@ class VideoRelease:
             return VideoReleaseFull(**args_mapping)
             
         def search(self, searchCriteria):
-            title
+            url_to_post = self.url + "/api/v1/rest/videoRelease/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             
 class Weapon:
         def __init__(self, url, apiKey):
@@ -604,5 +801,10 @@ class Weapon:
             return WeaponFull(**args_mapping)
             
         def search(self, searchCriteria):
-            name
+            url_to_post = self.url + "/api/v1/rest/weapon/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             

@@ -207,8 +207,10 @@ from .full import *
 from .base import *
 from .full_response import *
 from .base_response import *
+from .search_criteria import *
 from urllib.request import urlopen as urlopen
 from json import loads
+import requests
 
 """)
     searchable_attributes = extract_searchable_attributes()
@@ -243,7 +245,12 @@ from json import loads
             return """ + PascalCase[i] + """Full(**args_mapping)
             """ + """
         def search(self, searchCriteria):
-            """ + searchable_attributes[camelCase[i]]  + """
+            url_to_post = self.url + "/api/v1/rest/""" + camelCase[i] + """/search?pageNumber=" + str(searchCriteria.pageNumber) + "&" + str(searchCriteria.pageSize) 
+            data_to_post = searchCriteria.__dict__
+            post_request = requests.post(url_to_post, data_to_post)
+            response_text = post_request.text
+            response_dict = loads(response_text)
+            return response_dict
             """)
         main_file.write("\n")
 
@@ -323,3 +330,37 @@ def helper_rest_client():
 
 # helper_rest_client()
 
+def helper_searchCriteria():
+    searchCriteria_file = open("search_criteria.py", "w")
+    output_code = "from .common_search_criteria import *\n"
+    for i in range(len(snake_case)):
+        named_arguments = ", "
+        assignments = ""
+        file_string = os.getcwd() + "/yaml/" + snake_case[i] + "/path/" + camelCase[i] + "Search.path.yaml"
+        try:
+            loaded_yaml = yaml.load(open(file_string))
+            # print(loaded_yaml["post"]["parameters"])
+            formDataFields = []
+            for field in loaded_yaml["post"]["parameters"]:
+                if field["in"] == "formData":
+                    formDataFields.append(field["name"])
+            # print(formDataFields)
+            formDataFields.sort()
+            for entry in formDataFields:
+                named_arguments += entry + "=None, "
+                assignments +=  "        self." + entry + " = " + entry + "\n"
+                # declarations += "self." + entry
+            named_arguments = named_arguments[0:-2]
+            named_arguments += "):"
+            # print(named_arguments)
+        except FileNotFoundError as e:
+            print(e)
+            continue
+
+        
+        output_code += "class " + PascalCase[i]+ "SearchCriteria" + "(CommonSearchCriteria):" + "\n" + "    def __init__(self, pageNumber, pageSize, sort" + named_arguments
+        output_code += "\n        super(" + PascalCase[i] + "SearchCriteria, self).__init__(pageNumber, pageSize, sort)\n"
+        output_code += assignments
+        output_code += "\n"
+    searchCriteria_file.write(output_code)
+helper_searchCriteria()
