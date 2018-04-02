@@ -1,5 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 __author__ = "Maciej Kluczyński"
-__email__ = __version__ = "0.1.0"
+__email__ = "maciej.lukasz.kluczynski@gmail.com"
+__version__ = "0.1.13"
 __copyright__ = "Copyright Maciej Kluczyński 2018"
 __license__ = 'MIT'
 

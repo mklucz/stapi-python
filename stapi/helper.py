@@ -1,7 +1,7 @@
 import os 
 import yaml
 
-class Helper():
+class Base():
     """base, base_response, full, full_response, main, rest_client, extract_ordered_properties
         snake_case, PascalCase, camelCase """
     def base(file_object):
@@ -208,7 +208,10 @@ from .base import *
 from .full_response import *
 from .base_response import *
 from .search_criteria import *
-from urllib.request import urlopen as urlopen
+try:
+    from urllib.request import urlopen as urlopen
+except ImportError:
+    from urllib import urlopen as urlopen
 from json import loads
 import requests
 
@@ -256,7 +259,7 @@ import requests
 
     main_file.close()
 
-helper_klasy_main()
+# helper_klasy_main()
 
 def helper_base_response():
     base_response_file = open("base_response.py", "w")

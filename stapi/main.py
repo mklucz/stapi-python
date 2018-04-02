@@ -4,7 +4,10 @@ from .base import *
 from .full_response import *
 from .base_response import *
 from .search_criteria import *
-from urllib.request import urlopen as urlopen
+try:
+    from urllib.request import urlopen as urlopen
+except ImportError:
+    from urllib import urlopen as urlopen
 from json import loads
 import requests
 
